@@ -160,7 +160,7 @@ def buscar_obras_por_titulo(titulo_busca):
 
     return resultados
 
-
+print(buscar_obras_por_titulo("dos"))
 
 def delete_autor(autor_id):
     db = db_connection()
@@ -202,9 +202,9 @@ def update_autor(autor_id, nome, obra_fisica_id):
 
 
 
-num = create_obra('A Guerra dos Tronos', 1178, '1954-07-29', 10)
+num = create_obra('O principe', 1178, '1954-07-29', 10)
 print(f"id da obra{num}")
-create_autor("George RR Martin",num)
+create_autor("Maquiavel",num)
 create_livro(num,9788656510785, 'suma', 'fantasia')
 #inserir_obra('A Furia dos Reis', 1178, '1954-07-29', 10)
 #inserir_obra('O Festim dos Corvos', 1178, '1954-07-29', 10)

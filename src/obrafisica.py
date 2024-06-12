@@ -7,3 +7,6 @@ class ObraFisica:
       self._quantidade = quantidade
       self._exemplar = exemplar
       self._estado = estado
+  
+  def retornar_atributos():
+     pass
