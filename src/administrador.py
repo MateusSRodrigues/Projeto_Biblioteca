@@ -17,7 +17,7 @@ class Administrador(Pessoa):
             return ch
         c = 0
         while True:
-            opcao = ["Fazer reserva", "Fazer emprestimo", "Fazer devolucao", "Calcular multa","Deletar usuario"]
+            opcao = ["Consultar Cadastro", "Fazer reserva", "Cancelar reserva", "Fazer emprestimo", "Fazer devolucao", "Renovar emprestimo","Inserir obra", "Atualizar obra", "Excluir obra", "Procurar obra", "Calcular multa","Deletar usuario"]
             cabecalho = ["Pressione 'W' para subir 'S' para descer e 'D' para selecionar.\n", "O que deseja Fazer?"]
             os.system('clear')
             os.system('cls' if os.name == 'nt' else 'clear')        
@@ -57,4 +57,18 @@ class Administrador(Pessoa):
                         print('esta é a opcao ' + opcao[3])
                     if opcao [c % len(opcao)] == opcao[4]:
                         print('esta é a opcao ' + opcao[4])
+                    if opcao [c % len(opcao)] == opcao[5]:
+                        print('esta é a opcao ' + opcao[5])
+                    if opcao [c % len(opcao)] == opcao[6]:
+                        print('esta é a opcao ' + opcao[6])
+                    if opcao [c % len(opcao)] == opcao[7]:
+                        print('esta é a opcao ' + opcao[7])
+                    if opcao [c % len(opcao)] == opcao[8]:
+                        print('esta é a opcao ' + opcao[8])
+                    if opcao [c % len(opcao)] == opcao[9]:
+                        print('esta é a opcao ' + opcao[9])
+                    if opcao [c % len(opcao)] == opcao[10]:
+                        print('esta é a opcao ' + opcao[10])
+                    if opcao [c % len(opcao)] == opcao[11]:
+                        print('esta é a opcao ' + opcao[11])
                 time.sleep(1000)
