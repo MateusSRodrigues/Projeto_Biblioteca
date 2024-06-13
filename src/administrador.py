@@ -1,11 +1,16 @@
 from pessoa import Pessoa
 import os,termios, sys, tty
-import time     #apenas pra para a impressao final, retirar apos imlementar o que cada opçao faz!!!!!!!
+import time
 
 class Administrador(Pessoa):
     def __init__(self, nome, email, cpf, endereco, saldo, senha):super().__init__(nome, email, cpf, endereco, saldo, senha)
+
+    def deletarUsuario(self):
+        input("CPF do usuario a ser deletado")
+        #chama consultacadastro() se for false volta pro menu
+        #se verdadeiro chama a funçao deletar usuario do banco de dados
    
-    def menu(self):
+    def menuUsuario(self):
         def get_char():        # Função para capturar o caractere pressionado pelo usuário
             fd = sys.stdin.fileno()
             old_settings = termios.tcgetattr(fd)
@@ -17,7 +22,7 @@ class Administrador(Pessoa):
             return ch
         c = 0
         while True:
-            opcao = ["Consultar Cadastro", "Fazer reserva", "Cancelar reserva", "Fazer emprestimo", "Fazer devolucao", "Renovar emprestimo","Inserir obra", "Atualizar obra", "Excluir obra", "Procurar obra", "Calcular multa","Deletar usuario"]
+            opcao = ["Fazer reserva", "Cancelar reserva", "Fazer emprestimo", "Fazer devolucao", "Renovar emprestimo","Inserir obra", "Atualizar obra", "Excluir obra", "Procurar obra", "Calcular multa", "Deletar usuario"]
             cabecalho = ["Pressione 'W' para subir 'S' para descer e 'D' para selecionar.\n", "O que deseja Fazer?"]
             os.system('clear')
             os.system('cls' if os.name == 'nt' else 'clear')        
@@ -42,33 +47,60 @@ class Administrador(Pessoa):
                 c -= 1  # altera contador de click, sobe a seta
             elif n == 'd':  # escolhe opção
                 if c == 0:
-                    if opcao[c] == opcao[0]:
-                        print('esta é a opcao 1')
-                        time.sleep(1000)
+                    if opcao[c] == opcao[0]: #Fazer reserva
+                        
+                        #deverá chamar a fucao fazer reserva do gerenciamento
+                     
 
                 else:                     #alterar o que cada opçao faz
-                    if opcao [c % len(opcao)] == opcao[0]:
-                        print('esta é a opcao ' + opcao[0])
-                    if opcao [c % len(opcao)] == opcao[1]:
-                        print('esta é a opcao ' + opcao[1])
-                    if opcao [c % len(opcao)] == opcao[2]:
-                        print('esta é a opcao ' + opcao[2])
-                    if opcao [c % len(opcao)] == opcao[3]:
-                        print('esta é a opcao ' + opcao[3])
-                    if opcao [c % len(opcao)] == opcao[4]:
-                        print('esta é a opcao ' + opcao[4])
-                    if opcao [c % len(opcao)] == opcao[5]:
-                        print('esta é a opcao ' + opcao[5])
-                    if opcao [c % len(opcao)] == opcao[6]:
-                        print('esta é a opcao ' + opcao[6])
-                    if opcao [c % len(opcao)] == opcao[7]:
-                        print('esta é a opcao ' + opcao[7])
-                    if opcao [c % len(opcao)] == opcao[8]:
-                        print('esta é a opcao ' + opcao[8])
-                    if opcao [c % len(opcao)] == opcao[9]:
-                        print('esta é a opcao ' + opcao[9])
-                    if opcao [c % len(opcao)] == opcao[10]:
-                        print('esta é a opcao ' + opcao[10])
-                    if opcao [c % len(opcao)] == opcao[11]:
-                        print('esta é a opcao ' + opcao[11])
-                time.sleep(1000)
+                    if opcao [c % len(opcao)] == opcao[0]:    #Fazer reserva
+
+                        #deverá chamar a fucao fazer reserva do gerenciamento
+                        
+                        
+                    if opcao [c % len(opcao)] == opcao[1]: #Cancelar reserva
+                        
+                        #deverá chamar a fucao cancelar reserva do gerenciamento
+
+                        
+                    if opcao [c % len(opcao)] == opcao[2]: #Fazer emprestimo
+
+                         #deverá chamar a fucao fazer emprestimo do gerenciamento 
+                        
+                    if opcao [c % len(opcao)] == opcao[3]: #Fazer devolucao
+                        
+                    #deverá chamar a fucao fazer devolucao do gerenciamento
+
+                    
+                    if opcao [c % len(opcao)] == opcao[4]: #Renovar emprestimo
+                        
+                    #deverá chamar a funcao Renovar emprestimo do gerenciamento
+
+                    
+                    if opcao [c % len(opcao)] == opcao[5]: #fucao inserir obra
+                        
+                     #deverá chamar a fucao inserir obra do gerenciamento  
+                        
+                    if opcao [c % len(opcao)] == opcao[6]: #Atualizar obra
+                        
+                    #deverá chamar a fucao Atualizar obra do gerenciamento   
+
+                    
+                    if opcao [c % len(opcao)] == opcao[7]: #Excluir obra
+                        
+                    #deverá chamar a fucao Excluir obra do gerenciamento    
+
+                    
+                    if opcao [c % len(opcao)] == opcao[8]: #procurar obra
+                        
+                    #deverá chamar a fucao Procurar obra do gerenciamento                        
+
+                        
+                    if opcao [c % len(opcao)] == opcao[9]:  #Calcular multa
+                        
+                        print('esta é a opcao ' + opcao[9]) #deve calcular e imorimir a multa?
+
+                    
+                    if opcao [c % len(opcao)] == opcao[9]:  Deletar usuario
+                        self.deletarUsuario()
+                    
