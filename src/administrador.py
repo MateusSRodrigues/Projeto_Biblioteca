@@ -8,7 +8,7 @@ class Administrador(Pessoa, Usuario):
     def __init__(self, nome, email, cpf, endereco, saldo, senha):super().__init__(nome, email, cpf, endereco, saldo, senha)
 
     def deletarUsuario(self):
-        input("CPF do usuario a ser deletado")
+        cpf = input("CPF do usuario a ser deletado")
         #chama consultacadastro() se for false volta pro menu
         #se verdadeiro chama a funçao deletar usuario do banco de dados
 
@@ -107,6 +107,6 @@ class Administrador(Pessoa, Usuario):
                         
                         self.verificaMulta()
                     
-                    if opcao [c % len(opcao)] == opcao[9]:  Deletar usuario
+                    if opcao [c % len(opcao)] == opcao[9]: # Deletar usuario
                         self.deletarUsuario()
                     
