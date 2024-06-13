@@ -1,15 +1,22 @@
 from pessoa import Pessoa
+from usuario import Usuario
+
 import os,termios, sys, tty
 import time
 
-class Administrador(Pessoa):
+class Administrador(Pessoa, Usuario):
     def __init__(self, nome, email, cpf, endereco, saldo, senha):super().__init__(nome, email, cpf, endereco, saldo, senha)
 
     def deletarUsuario(self):
         input("CPF do usuario a ser deletado")
         #chama consultacadastro() se for false volta pro menu
         #se verdadeiro chama a funçao deletar usuario do banco de dados
-   
+
+    def verificarMulta(self):
+        input("CPF do usuario a ser deletado")
+        #imprime resultados da funçao que calcula multa
+
+        
     def menuUsuario(self):
         def get_char():        # Função para capturar o caractere pressionado pelo usuário
             fd = sys.stdin.fileno()
@@ -22,7 +29,7 @@ class Administrador(Pessoa):
             return ch
         c = 0
         while True:
-            opcao = ["Fazer reserva", "Cancelar reserva", "Fazer emprestimo", "Fazer devolucao", "Renovar emprestimo","Inserir obra", "Atualizar obra", "Excluir obra", "Procurar obra", "Calcular multa", "Deletar usuario"]
+            opcao = ["Fazer reserva", "Cancelar reserva", "Fazer emprestimo", "Fazer devolucao", "Renovar emprestimo","Inserir obra", "Atualizar obra", "Excluir obra", "Procurar obra", "Verificar multa", "Deletar usuario"]
             cabecalho = ["Pressione 'W' para subir 'S' para descer e 'D' para selecionar.\n", "O que deseja Fazer?"]
             os.system('clear')
             os.system('cls' if os.name == 'nt' else 'clear')        
@@ -96,10 +103,9 @@ class Administrador(Pessoa):
                     #deverá chamar a fucao Procurar obra do gerenciamento                        
 
                         
-                    if opcao [c % len(opcao)] == opcao[9]:  #Calcular multa
+                    if opcao [c % len(opcao)] == opcao[9]:  #verifica multa
                         
-                        print('esta é a opcao ' + opcao[9]) #deve calcular e imorimir a multa?
-
+                        self.verificaMulta()
                     
                     if opcao [c % len(opcao)] == opcao[9]:  Deletar usuario
                         self.deletarUsuario()
