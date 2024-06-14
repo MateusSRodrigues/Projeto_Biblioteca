@@ -9,6 +9,9 @@ class Livro(ObraFisica):
         self._genero = genero
         self._valor = valor
 
+    def retornar_atributos(self):
+        return [self._ISBN, self._editora, self._genero,self._valor]
+    
     @property
     def ISBN(self):
         return self._ISBN
