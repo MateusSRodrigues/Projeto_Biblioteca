@@ -1,15 +1,15 @@
 from abc import ABC, abstractmethod
 
-class Usuario:
+class Usuario(ABC):
   
   @abstractmethod
-  deletarUsuario(self):
+  def deletarUsuario(self):
     pass
 
   @abstractmethod
-  verificarMulta():
+  def verificarMulta(self):
     pass
     
-  @abstractmethod
-  pedirReserva():
-    pass
+  #abstractmethod
+  #def pedirReserva(self):
+  #  pass
