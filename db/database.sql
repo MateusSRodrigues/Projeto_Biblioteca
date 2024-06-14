@@ -188,7 +188,6 @@ DROP TABLE IF EXISTS `ObraFisica`;
 CREATE TABLE `ObraFisica` (
   `id` int NOT NULL,
   `titulo` varchar(255) DEFAULT NULL,
-  `autor` varchar(255) DEFAULT NULL,
   `paginas` int DEFAULT NULL,
   `data_publicacao` date DEFAULT NULL,
   `quantidade` int DEFAULT NULL,
