@@ -1,4 +1,5 @@
 import os,termios, sys, tty
+import time
 
 class Sistema:
     def login(self):
@@ -70,3 +71,5 @@ class Sistema:
                     
                     if opcao [c % len(opcao)] == opcao[2]: #Pesquisar obra
                        #chama a funcao pesquisar obra do banco de dados
+                        print("Pesquisar obra")
+                        time.sleep(500)
