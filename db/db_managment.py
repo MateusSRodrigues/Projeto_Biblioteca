@@ -1,7 +1,102 @@
 import mysql.connector
 from mysql.connector import Error
 
+class DatabaseManager:
+    def __init__(self, host='localhost', database='biblioteca', user='mateus', password='264859'):
+        self.host = host
+        self.database = database
+        self.user = user
+        self.password = password
+        self.connection = None
 
+    def connect(self):
+        try:
+            self.connection = mysql.connector.connect(
+                host=self.host,
+                database=self.database,
+                user=self.user,
+                password=self.password
+            )
+            if self.connection.is_connected():
+                print("Connected to MySQL database")
+        except Error as e:
+            print(f"Error: {e}")
+            self.connection = None
+
+    def disconnect(self):
+        if self.connection.is_connected():
+            self.connection.close()
+            print("MySQL connection is closed")
+
+    def execute_query(self, query, params=None):
+        try:
+            cursor = self.connection.cursor()
+            cursor.execute(query, params)
+            self.connection.commit()
+            return cursor.lastrowid
+        except Error as e:
+            self.connection.rollback()
+            print(f"Error: {e}")
+            return None
+        finally:
+            cursor.close()
+
+    def fetch_all(self, query, params=None):
+        try:
+            cursor = self.connection.cursor(dictionary=True)
+            cursor.execute(query, params)
+            return cursor.fetchall()
+        except Error as e:
+            print(f"Error: {e}")
+            return None
+        finally:
+            cursor.close()
+
+    def fetch_one(self, query, params=None):
+        try:
+            cursor = self.connection.cursor(dictionary=True)
+            cursor.execute(query, params)
+            return cursor.fetchone()
+        except Error as e:
+            print(f"Error: {e}")
+            return None
+        finally:
+            cursor.close()
+
+    def search_by_parameter(self, table, field, value):
+        try:
+            query = f"SELECT * FROM {table} WHERE {field} LIKE %s"
+            params = (f"%{value}%",)
+            return self.fetch_all(query, params)
+        except Error as e:
+            print(f"Error: {e}")
+            return None
+        
+    def start_transaction(self):
+        if self.connection.is_connected():
+            self.connection.start_transaction()
+
+    def commit(self):
+        if self.connection.is_connected():
+            self.connection.commit()
+
+    def rollback(self):
+        if self.connection.is_connected():
+            self.connection.rollback()
+
+    def search_by_parameter(self, table, field, value):
+        try:
+            query = f"SELECT * FROM {table} WHERE {field} LIKE %s"
+            params = (f"%{value}%",)
+            return self.fetch_all(query, params)
+        except Error as e:
+            print(f"Error: {e}")
+            return None
+
+
+
+
+"""
 # Database connection details (adjust if needed)
 db_connection = {
     'host': 'localhost',  # Seu endereço IPv4 do WSL
@@ -19,10 +114,10 @@ def create_obra(titulo, paginas, data_publicacao, quantidade):
             cursor = connection.cursor()
             
             # Inserir dados na tabela ObraFisica
-            query = """
-            INSERT INTO ObraFisica (titulo, paginas, data_publicacao, quantidade)
-            VALUES (%s, %s, %s, %s)
-            """
+            query = 
+            #INSERT INTO ObraFisica (titulo, paginas, data_publicacao, quantidade)
+            #VALUES (%s, %s, %s, %s)
+            
             valores = (titulo, paginas, data_publicacao, quantidade)
             
             cursor.execute(query, valores)
@@ -53,9 +148,9 @@ def create_autor(nome, obra_fisica_id):
             cursor = connection.cursor()
             
             # Inserir dados na tabela ObraFisica
-            query = """
-            INSERT INTO Autor (nome, obra_fisica_id) VALUES (%s, %s)
-            """
+            query = 
+            #INSERT INTO Autor (nome, obra_fisica_id) VALUES (%s, %s)
+            
             valores = (nome, obra_fisica_id)
             
             cursor.execute(query, valores)
@@ -82,9 +177,9 @@ def create_livro(id, isbn, editora, genero):
             cursor = connection.cursor()
             
             # Inserir dados na tabela ObraFisica
-            query = """
-            INSERT INTO Livro (id, ISBN, editora, genero) VALUES (%s, %s, %s, %s)
-            """
+            query = 
+            #INSERT INTO Livro (id, ISBN, editora, genero) VALUES (%s, %s, %s, %s)
+           
             valores = (id, isbn, editora, genero)
             
             cursor.execute(query, valores)
@@ -212,3 +307,4 @@ create_livro(num,9788656510785, 'suma', 'fantasia')
 #inserir_obra('A Dança dos Dragoes', 1178, '1954-07-29', 10)
 #listar_todas_obras()
 #print(buscar_obras_por_titulo("dos"))
+"""
