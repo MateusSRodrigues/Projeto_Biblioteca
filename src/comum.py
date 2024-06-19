@@ -16,7 +16,7 @@ class Comum(Usuario):
 
   def ver_informacoes(self):
     print(f'Nome: {self.nome}\nCPF: {self.CPF} \nEmail: {self.email} \nEndereço: {self.endereco}')
-    pass
+  pass
 
   def atualizarSenha(self):
     os.system("clear")
@@ -37,10 +37,16 @@ class Comum(Usuario):
       print ("Senha incorreta!!")
       self.menuUsiario()
   pass
-    
-
-
   
+  def atualizarEndereco(self):
+    os.system("clear")
+    self.endereco = input("Digite seu novo endereco: ")
+  pass
+  
+  def atualizarEmail(self):
+    os.system("clear")
+    self.email = input("Digite seu novo Email: ")
+  pass
 
   def menuUsuario(self):
       def get_char():        # Função para capturar o caractere pressionado pelo usuário
@@ -72,7 +78,7 @@ class Comum(Usuario):
                   print("====================================\n====================================")
 
           n = get_char()
-
+  
           if n == 's':
               c += 1  # altera contador de click, desce a seta
           elif n == 'w':
@@ -87,8 +93,7 @@ class Comum(Usuario):
               else:                     #alterar o que cada opçao faz
                   if opcao [c % len(opcao)] == opcao[0]:    #Fazer reserva
 
-                      print(opcao[0])#deverá chamar a fucao fazer emprestimo do gerenciamento 
-#deverá chamar a fucao fazer reserva do gerenciamento
+                      print(opcao[0])#deverá chamar a fucao fazer emprestimo do gerenciamento #deverá chamar a fucao fazer reserva do gerenciamento
 
 
                   if opcao [c % len(opcao)] == opcao[1]: #Cancelar reserva
