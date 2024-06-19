@@ -91,7 +91,7 @@ class gerenciamentodados():
         finally:
             db.disconnect()
     """
-    def pesquisarObraPorTitulo(string: str):
+    def pesquisarObraPorTitulo(string: str)-> list[ObraFisica]: 
         db = DatabaseManager()
         db.connect()
         try:
@@ -99,7 +99,7 @@ class gerenciamentodados():
             result = db.search_by_parameter("ObraFisica", "titulo", string)
 
             if result:
-                obras = []
+                obras: list[ObraFisica] = []
                 for row in result:
                     obra_id = row['id']
                     titulo = row['titulo']
@@ -117,11 +117,11 @@ class gerenciamentodados():
                     livro_result = db.fetch_all(query_livro, (obra_id,))
 
                     if livro_result:
-                        print("entrou")
+                        #print("entrou")
                         tipo = "Livro"
                         detalhes = Livro(livro_result[0]['editora'], livro_result[0]['ISBN'], livro_result[0]['genero'], '10', titulo, autores, data_publicacao, paginas, quantidade)
                         #print(detalhes.retornar_atributos())
-                        obras.append(detalhes.retornar_atributos())
+                        obras.append(detalhes)
                     else:
                         query_periodico = "SELECT * FROM Periodico WHERE id = %s"
                         periodico_result = db.fetch_all(query_periodico, (obra_id,))
@@ -150,5 +150,6 @@ class gerenciamentodados():
 
 #teste = Livro('leia','2589631456','terror','15' ,'unico2',['jorge'], '2020-04-04', 50, 5) 
 #gerenciamentodados.inserirObra(teste)
-results = gerenciamentodados.pesquisarObraPorTitulo('dos')
-print(results)
+#results: list[ObraFisica] = gerenciamentodados.pesquisarObraPorTitulo('dos')
+#for obra in results:
+    #print(obra.retornar_atributos())

@@ -1,3 +1,5 @@
+from .obrafisica import ObraFisica
+from .gerenciamentodados import gerenciamentodados
 import os,termios, sys, tty
 import time
 
@@ -33,7 +35,7 @@ class Sistema:
             return ch
         c = 0
         while True:
-            opcao = ["Login", "Cadastrar", "Pesqisar obra"]
+            opcao = ["Login", "Cadastrar", "Pesquisar obra"]
             cabecalho = ["Pressione 'W' para subir 'S' para descer e 'D' para selecionar.\n", "O que deseja Fazer?"]
             os.system('clear')
             os.system('cls' if os.name == 'nt' else 'clear')        
@@ -71,5 +73,23 @@ class Sistema:
                     
                     if opcao [c % len(opcao)] == opcao[2]: #Pesquisar obra
                        #chama a funcao pesquisar obra do banco de dados
-                        print("Pesquisar obra")
+                        titulo = input(print("Digite o titulo da obra:"))
+                        aux = gerenciamentodados.pesquisarObraPorTitulo(titulo)
+                        result = self.selecionar(aux)
+                        print(result.retornar_atributos())
+
                         time.sleep(500)
+
+    def selecionar(self, lista: list[ObraFisica]):
+        for index, obra in enumerate(lista, start=1):
+            print(f"{index}: {obra.titulo}, {obra.autor}")
+        
+        indice = int(input(print("Escolha a obra pelo numero indexado:")))
+        if 1 <= indice <= len(lista):
+            return lista[indice - 1]
+        else:
+            raise IndexError("Índice fora do intervalo válido")
+        
+
+teste = Sistema()
+teste.menuInicial()
