@@ -13,9 +13,28 @@ class Comum(Usuario):
       print("sua multa é: ") #imprime resultados da funçao que calculaMulta(self.cpf)
   '''
 
-   def ver_informacoes(self):
+  def ver_informacoes(self):
     print(f'Nome: {self.nome}\nCPF: {self.CPF} \nEmail: {self.email} \nEndereço: {self.endereco}')
     pass
+
+  def atualizarSenha(self):
+    os.system("clear")
+    senha_atual = input("Digite a sua senha atual: ")
+    if senha_atual == self.senha:
+      nova_senha = input("Digite a sua nova senha: ")
+      confirma_nova_senha = input("Confirme a sua nova senha: ")
+      if nova_senha == confirma_nova_senha:
+        self.senha = nova_senha
+        print("Senha alterada com sucesso!")
+        self.menuUsuario()
+      else:
+        print ("As senhas nao sao iguais. Tente novamente!!")
+        self.atualizarSenha()
+    else:
+      print ("Senha incorreta!!")
+      self.menuUsiario()
+  pass
+    
 
 
   
