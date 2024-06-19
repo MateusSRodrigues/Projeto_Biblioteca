@@ -13,6 +13,7 @@ class ObraFisica:
             self.quantidade = quantidade
             #self.exemplar = exemplar
             #self.estado = estado
+        self._comentarios = []
 
     def _sup_interactive(self):
         # Título
@@ -118,7 +119,7 @@ class ObraFisica:
 
     @autor.setter
     def autor(self, novo_autor):
-        if isinstance(novo_autor, str) and novo_autor.strip():
+        if isinstance(novo_autor, list) and all(isinstance(a, str) and a.strip() for a in novo_autor):
             self._autor = novo_autor
         else:
             raise ValueError("O autor deve ser uma string não vazia.")
@@ -126,14 +127,20 @@ class ObraFisica:
     @property
     def data_publicacao(self):
         return self._data_publicacao
-
+    
     @data_publicacao.setter
     def data_publicacao(self, nova_data):
-        try:
+        if isinstance(nova_data, str):
             # Tenta converter a string em um objeto datetime.date
-            self._data_publicacao = datetime.strptime(nova_data, "%Y-%m-%d").date()
-        except ValueError:
-            raise ValueError("Formato de data inválido. Use AAAA-MM-DD.")
+            try:
+                self._data_publicacao = datetime.strptime(nova_data, "%Y-%m-%d").date()
+            except ValueError:
+                raise ValueError("Formato de data inválido. Use AAAA-MM-DD.")
+        elif isinstance(nova_data, date):
+            # Se já for um objeto datetime.date, apenas atribui
+            self._data_publicacao = nova_data
+        else:
+            raise ValueError("A data deve ser uma string no formato AAAA-MM-DD ou um objeto datetime.date.")
     
     @property
     def paginas(self):
@@ -152,35 +159,53 @@ class ObraFisica:
 
     @quantidade.setter
     def quantidade(self, nova_quantidade):
-        if isinstance(nova_quantidade, int) and nova_quantidade >= 0:
-            self._quantidade = nova_quantidade
-        else:
+        if not isinstance(nova_quantidade, int) or nova_quantidade < 0:
             raise ValueError("A quantidade deve ser um inteiro não negativo.")
+        self._quantidade = nova_quantidade
     
+        # Limpar exemplares existentes (se houver)
+        self._exemplar = {}
+
+        # Adicionar exemplares iniciais
+        for i in range(1, nova_quantidade + 1):
+            self._exemplar[i] = "disponível"
+
     @property
     def exemplar(self):
         return self._exemplar
-
+    
     @exemplar.setter
-    def exemplar(self, novo_exemplar):
-        if isinstance(novo_exemplar, str) and novo_exemplar.strip():
-            self._exemplar = novo_exemplar
-        else:
-            raise ValueError("O exemplar deve ser uma string não vazia.")
+    def exemplar(self, id_exemplar):
+        if not isinstance(id_exemplar, int):
+            raise ValueError("O ID do exemplar deve ser um número inteiro.")
+        if id_exemplar in self._exemplar:
+            raise ValueError(f"O exemplar com ID {id_exemplar} já existe.")
+        self._exemplar[id_exemplar] = "disponível"
+
+
     
     @property
-    def estado(self):
-        return self._estado
+    def comentarios(self):
+        return self._comentarios
 
-    @estado.setter
-    def estado(self, novo_estado):
-        if isinstance(novo_estado, str) and novo_estado.strip():
-            self._estado = novo_estado
+    @comentarios.setter
+    def comentarios(self, novo_comentario):
+        if isinstance(novo_comentario, str) and novo_comentario.strip():
+            self._comentarios.append(novo_comentario) 
         else:
-            raise ValueError("O estado deve ser uma string não vazia.")
+            raise ValueError("O comentario nao pode ser vazio.")
     
     def retornar_sup(self):
         return [self._titulo, self._autor, self._data_publicacao, self._paginas, self._quantidade]
     
     def retornar_atributos():
         pass
+
+    def alterar_estado_exemplar(self, id_exemplar, novo_estado):
+        """Altera o estado de um exemplar existente."""
+        estados_validos = ["disponível", "emprestado", "reservado"]
+        if id_exemplar not in self._exemplar:
+            raise ValueError(f"O exemplar com ID {id_exemplar} não existe.")
+        if novo_estado not in estados_validos:
+            raise ValueError("Estado inválido. Use 'disponível', 'emprestado' ou 'reservado'.")
+        self._exemplar[id_exemplar] = novo_estado

@@ -84,14 +84,6 @@ class DatabaseManager:
         if self.connection.is_connected():
             self.connection.rollback()
 
-    def search_by_parameter(self, table, field, value):
-        try:
-            query = f"SELECT * FROM {table} WHERE {field} LIKE %s"
-            params = (f"%{value}%",)
-            return self.fetch_all(query, params)
-        except Error as e:
-            print(f"Error: {e}")
-            return None
 
 
 

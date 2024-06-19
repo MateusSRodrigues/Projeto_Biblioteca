@@ -1,5 +1,5 @@
 from datetime import date
-from obrafisica import ObraFisica
+from .obrafisica import ObraFisica
 
 class TrabalhoAcademico(ObraFisica):
     def __init__(self, titulo=None, autor=None, data_publicacao=None, paginas=None, quantidade=None, exemplar=None, estado=None, tipo=None, orientador=None, nivel_academico=None, area_estudo=None):

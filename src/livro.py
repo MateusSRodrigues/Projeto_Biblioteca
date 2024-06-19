@@ -1,10 +1,10 @@
-from obrafisica import ObraFisica
+from .obrafisica import ObraFisica
 from datetime import date
 
 class Livro(ObraFisica):
 
     def __init__(self, editora=None, ISBN=None, genero=None, valor=None, titulo=None, autor=None, data_publicacao=None, paginas=None, quantidade=None):
-        if editora is None or ISBN is None or genero is None or valor is None:
+        if editora is None or ISBN is None or genero is None:
             self._init_interactive()
         else:
             self.editora = editora
