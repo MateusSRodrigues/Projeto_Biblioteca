@@ -3,15 +3,22 @@ import os,termios, sys, tty
 
 class Comum(Usuario):
 
-  def deletarUsuario(self):
+  '''def deletarUsuario(self):
       print("Usuario deletado")
-      #chama consultacadastro(self.CPF) se for false volta pro menu
-      #se verdadeiro chama a funçao deletar usuario do banco de dados
+      chama consultacadastro(self.CPF) se for false volta pro menu
+      se verdadeiro chama a funçao deletar usuario do banco de dados
       pass
 
   def verificarMulta(self):
       print("sua multa é: ") #imprime resultados da funçao que calculaMulta(self.cpf)
+  '''
 
+   def ver_informacoes(self):
+    print(f'Nome: {self.nome}\nCPF: {self.CPF} \nEmail: {self.email} \nEndereço: {self.endereco}')
+    pass
+
+
+  
 
   def menuUsuario(self):
       def get_char():        # Função para capturar o caractere pressionado pelo usuário
@@ -25,7 +32,7 @@ class Comum(Usuario):
           return ch
       c = 0
       while True:
-          opcao = ["Fazer reserva", "Cancelar reserva", "Verificar multa", "Deletar usuario"]
+          opcao = ["Ver minhas informacoes", "Listar meus emprestimos", "Atualizar senha", "Atualizar endereço", "Atualizar Email"]
           cabecalho = ["Pressione 'W' para subir 'S' para descer e 'D' para selecionar.\n", "O que deseja Fazer?"]
           os.system('clear')
           os.system('cls' if os.name == 'nt' else 'clear')        
