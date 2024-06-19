@@ -1,5 +1,6 @@
 from usuario import Usuario
 import os,termios, sys, tty
+import time
 
 class Comum(Usuario):
 
@@ -25,10 +26,12 @@ class Comum(Usuario):
       confirma_nova_senha = input("Confirme a sua nova senha: ")
       if nova_senha == confirma_nova_senha:
         self.senha = nova_senha
-        print("Senha alterada com sucesso!")
+        print("Senha alterada com sucesso!!")
         self.menuUsuario()
       else:
+        os.system("clear")
         print ("As senhas nao sao iguais. Tente novamente!!")
+        input("Pressione enter.")
         self.atualizarSenha()
     else:
       print ("Senha incorreta!!")
