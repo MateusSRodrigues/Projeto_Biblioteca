@@ -1,5 +1,9 @@
 from pessoa import Pessoa
 from usuario import Usuario
+from livro import Livro
+from periodico import Periodico
+from trabalhoacademico import TrabalhoAcademico
+from gerenciamentodados import gerenciamentodados
 import time
 
 import os, termios, sys, tty
@@ -19,11 +23,84 @@ class Administrador(Pessoa, Usuario):
     def verificarMulta(self):
         input("CPF do usuario a ser deletado: ")
         #imprime resultados da funçao que calcula multa
+        pass
+    
+    def criarLivro(self):
+            novo_livro = Livro()
+            gerenciamentodados.inserirObra(novo_livro)
+            pass
+    def criarPeriodico(self):
+            novo_periodico = Periodico()
+            gerenciamentodados.inserirObra(novo_periodico)
+            pass 
+    def criarTrabalhoAcademico(self):
+            novo_trabalho_academico = TrabalhoAcademico()
+            gerenciamentodados.inserirObra(novo_trabalho_academico)
+            pass    
+        
+        
+    
+    def criarObra(self):
+        def get_char():  # Função para capturar o caractere pressionado pelo usuário
+            fd = sys.stdin.fileno()
+            old_settings = termios.tcgetattr(fd)
+            try:
+                tty.setraw(sys.stdin.fileno())
+                ch = sys.stdin.read(1)
+            finally:
+                termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+            return ch
+
+        c = 0
+        while True:
+            opcao = ["Livro", "Periodico", "Trabalho academico"]
+            cabecalho = [
+                "Pressione 'W' para subir 'S' para descer e 'D' para selecionar.\n",
+                "Qual tipo de obra deseja inserir?"
+            ]
+            os.system('clear')
+            os.system('cls' if os.name == 'nt' else 'clear')
+
+            for i in range(len(opcao)):
+                if i == 0:
+                    for item in cabecalho:
+                        print(item, end='')
+                    print("\n------------------------------")
+                if i == c % len(opcao):
+                    print(f"->{opcao[i]}")
+                else:
+                    print(opcao[i])
+                if i == len(opcao) - 1:
+                    print(
+                        "====================================\n===================================="
+                    )
+
+            n = get_char()
+
+            if n == 's':
+                c += 1  # altera contador de click, desce a seta
+            elif n == 'w':
+                c -= 1  # altera contador de click, sobe a seta
+            elif n == 'd':  # escolhe opção
+                if c == 0:
+                    if opcao[c] == opcao[0]:  #Livro
+                          self.criarLivro()
+                          
+                else:  #alterar o que cada opçao faz
+                    if opcao[c % len(opcao)] == opcao[0]:  #Livro
+                        self.criarLivro()
+
+                    if opcao[c % len(opcao)] == opcao[1]:  #Periodico
+                        self.criarPeriodico()
+                        
+                    if opcao[c % len(opcao)] == opcao[2]:  #Trabalho academico
+                        self.criarTrabalhoAcademico()
+                        #print("2")  #deverá chamar a fucao fazer emprestimo do gerenciamento
+                pass
 
     def menuUsuario(self):
-
-        def get_char(
-        ):  # Função para capturar o caractere pressionado pelo usuário
+        
+        def get_char():  # Função para capturar o caractere pressionado pelo usuário
             fd = sys.stdin.fileno()
             old_settings = termios.tcgetattr(fd)
             try:
@@ -109,9 +186,11 @@ class Administrador(Pessoa, Usuario):
 
                     if opcao[c % len(opcao)] == opcao[5]:  #fucao inserir obra
 
-                        print(
-                            "5"
-                        )  #deverá chamar a fucao inserir obra do gerenciamento
+                        #print("5")  #deverá chamar a fucao inserir obra do gerenciamento
+                        self.criarObra()
+                        
+                        
+                        
 
                     if opcao[c % len(opcao)] == opcao[6]:  #Atualizar obra
 
