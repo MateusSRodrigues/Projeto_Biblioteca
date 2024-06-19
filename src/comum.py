@@ -91,18 +91,16 @@ class Comum(Usuario):
 
 
               else:                     #alterar o que cada opçao faz
-                  if opcao [c % len(opcao)] == opcao[0]:    #Fazer reserva
+                  if opcao [c % len(opcao)] == opcao[0]:    #Ver minhas informacoes
+                    self.ver_informacoes()
 
-                      print(opcao[0])#deverá chamar a fucao fazer emprestimo do gerenciamento #deverá chamar a fucao fazer reserva do gerenciamento
 
+                  if opcao [c % len(opcao)] == opcao[1]: #listar meus emprestimos
 
-                  if opcao [c % len(opcao)] == opcao[1]: #Cancelar reserva
+                      #print(opcao[0])#deverá chamar a fucao cancelar reserva do gerenciamento                        
 
-                      print(opcao[0])#deverá chamar a fucao cancelar reserva do gerenciamento                        
-
-                  if opcao [c % len(opcao)] == opcao[2]:  #verifica multa
-
-                      print(opcao[1]) #self.verificaMulta()
+                  if opcao [c % len(opcao)] == opcao[2]:  #Atualizar senha
+                    self.atualizarSenha()
 
                   if opcao [c % len(opcao)] == opcao[3]: # Deletar usuario
                       
