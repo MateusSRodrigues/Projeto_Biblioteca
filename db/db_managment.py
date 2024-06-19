@@ -85,10 +85,31 @@ class DatabaseManager:
             self.connection.rollback()
 
 
-
-
-
+    def numero_obras_disponiveis(self, obra_titulo):
+        try:
+            query = """
+                SELECT COUNT(e.id) as num_disponiveis
+                FROM Exemplar e
+                JOIN ObraFisica o ON e.obra_fisica_id = o.id
+                WHERE o.titulo LIKE %s AND e.estado = 'disponivel'
+            """
+            params = (f"%{obra_titulo}%",)
+            result = self.fetch_one(query, params)
+            return result['num_disponiveis'] if result else 0
+        except Error as e:
+            print(f"Error: {e}")
+            return 0
 """
+# Usage
+db_manager = DatabaseManager()
+db_manager.connect()
+
+numero_disponiveis = db_manager.numero_obras_disponiveis('dos')
+print(f"Number of available copies: {numero_disponiveis}")
+
+db_manager.disconnect()
+
+
 # Database connection details (adjust if needed)
 db_connection = {
     'host': 'localhost',  # Seu endereço IPv4 do WSL

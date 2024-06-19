@@ -3,15 +3,14 @@ from datetime import date
 
 class Livro(ObraFisica):
 
-    def __init__(self, editora=None, ISBN=None, genero=None, valor=None, titulo=None, autor=None, data_publicacao=None, paginas=None, quantidade=None):
+    def __init__(self, editora=None, ISBN=None, genero=None, titulo=None, autor=None, data_publicacao=None, paginas=None, quantidade=None):
         if editora is None or ISBN is None or genero is None:
             self._init_interactive()
         else:
             self.editora = editora
-            self.ISBN = ISBN
             self.genero = genero
-            self.valor = valor
-        super().__init__(titulo, autor, data_publicacao, paginas, quantidade)
+        
+        super().__init__(ISBN, titulo, autor, data_publicacao, paginas, quantidade)
 
     def _init_interactive(self):
         # Editora
@@ -25,7 +24,7 @@ class Livro(ObraFisica):
                     raise ValueError("O nome da editora não pode ser vazio.")
             except ValueError as e:
                 print(e)
-
+        """
         # ISBN
         while True:
             try:
@@ -37,7 +36,7 @@ class Livro(ObraFisica):
                     raise ValueError("O ISBN não pode ser vazio.")
             except ValueError as e:
                 print(e)
-
+        """
         # Genero
         while True:
             try:
@@ -49,7 +48,7 @@ class Livro(ObraFisica):
                     raise ValueError("O genero não pode ser vazio.")
             except ValueError as e:
                 print(e)
-        
+        """
         # Valor
         while True:
             try:
@@ -61,11 +60,11 @@ class Livro(ObraFisica):
                     raise ValueError("O valor não pode ser vazio.")
             except ValueError as e:
                 print(e)
-
+        
     @property
     def ISBN(self):
         return self._ISBN
-
+    
     @ISBN.setter
     def ISBN(self, novo_ISBN):
         novo_ISBN = novo_ISBN.replace("-", "")  # Remove hífens, se houver
@@ -77,7 +76,7 @@ class Livro(ObraFisica):
             raise ValueError("ISBN deve ter 10 ou 13 dígitos.")
 
         self._ISBN = novo_ISBN
-
+    """
 
     @property
     def editora(self):
@@ -103,7 +102,7 @@ class Livro(ObraFisica):
         
         self._genero = novo_genero
 
-
+    """
     @property
     def valor(self):
         return self._valor
@@ -115,20 +114,12 @@ class Livro(ObraFisica):
             raise ValueError("O valor deve ser composto apenas por numeros.")
 
         self._valor = novo_valor
-
-    def method(self, type):
-        if type == "calcular_multa":
-            # Lógica para calcular multa de atraso (exemplo)
-            dias_atraso = (date.today() - self._data_publicacao).days
-            multa = dias_atraso * 0.50  # R$0.50 por dia de atraso
-            return multa
-        else:
-            return "Método não implementado para este tipo"
+    """
 
     def __str__(self):
-        return super().__str__() + f"\nISBN: {self._ISBN}\nEditora: {self._editora}\nGênero: {self._genero}\nValor: R${self._valor:.2f}"
+        return super().__str__() + f"\nISBN: {super()._id}\nEditora: {self._editora}\nGênero: {self._genero}\n"
     
     def retornar_atributos(self):
-        return super().retornar_sup() + [self._ISBN, self._editora, self._genero,self._valor]
+        return super().retornar_sup() + [self._editora, self._genero]
 
 #livroteste = Livro()

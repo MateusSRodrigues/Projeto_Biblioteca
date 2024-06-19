@@ -2,20 +2,19 @@ from datetime import date
 from .obrafisica import ObraFisica
 
 class Periodico(ObraFisica):
-    def __init__(self, titulo=None, autor=None, data_publicacao=None, paginas=None, quantidade=None, exemplar=None, estado=None, ISSN=None, editora=None, area_estudo=None, volume=None):
+    def __init__(self,ISSN = None, titulo=None, autor=None, data_publicacao=None, paginas=None, quantidade=None, exemplar=None, estado=None, editora=None, area_estudo=None, volume=None):
         if titulo is None or autor is None or data_publicacao is None or paginas is None or quantidade is None or exemplar is None or estado is None or ISSN is None or editora is None or area_estudo is None or volume is None:
             self._init_interactive()
         else:
-            super().__init__(titulo, autor, data_publicacao, paginas, quantidade, exemplar, estado)
-            self.ISSN = ISSN
             self.editora = editora
             self.area_estudo = area_estudo
             self.volume = volume
+            super().__init__(ISSN,titulo,  autor, data_publicacao, paginas, quantidade, exemplar, estado)
 
     def _init_interactive(self):
         # Inicialização interativa para os atributos da classe base
         super()._sup_interactive()
-
+        """
         # ISSN
         while True:
             try:
@@ -27,7 +26,7 @@ class Periodico(ObraFisica):
                     raise ValueError("O ISSN não pode ser vazio.")
             except ValueError as e:
                 print(e)
-        
+        """
         # Editora
         while True:
             try:
@@ -71,12 +70,12 @@ class Periodico(ObraFisica):
 
     @property
     def ISSN(self):
-        return self._ISSN
+        return super().id
 
     @ISSN.setter
     def ISSN(self, novo_ISSN):
         if isinstance(novo_ISSN, str) and novo_ISSN.strip():
-            self._ISSN = novo_ISSN
+            super().id = novo_ISSN
         else:
             raise ValueError("O ISSN deve ser uma string não vazia.")
 
@@ -114,4 +113,6 @@ class Periodico(ObraFisica):
             raise ValueError("O volume deve ser um inteiro positivo.")
 
     def retornar_atributos(self):
-        return super().retornar_sup() + [self._ISSN, self._editora, self._area_estudo, self._volume]
+        return super().retornar_sup() + [self._editora, self._area_estudo, self._volume]
+
+#teste = Periodico()

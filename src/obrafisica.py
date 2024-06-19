@@ -2,10 +2,11 @@ from datetime import date
 from datetime import datetime
 
 class ObraFisica:
-    def __init__(self, titulo=None, autor=None, data_publicacao=None, paginas=None, quantidade=None):
+    def __init__(self,id=None, titulo=None, autor=None, data_publicacao=None, paginas=None, quantidade=None):
         if titulo is None or autor is None or data_publicacao is None or paginas is None or quantidade is None:
             self._sup_interactive()
         else:
+            self.id=id
             self.titulo = titulo
             self.autor = autor
             self.data_publicacao = data_publicacao
@@ -17,6 +18,17 @@ class ObraFisica:
 
     def _sup_interactive(self):
         # Título
+        while True:
+            try:
+                id = input("Digite a identificação da obra(ISSN ou ISBN): ")
+                if id.strip():
+                    self.id = id
+                    break
+                else:
+                    raise ValueError("O título não pode ser vazio.")
+            except ValueError as e:
+                print(e)
+
         while True:
             try:
                 titulo = input("Digite o título da obra: ")
@@ -33,7 +45,7 @@ class ObraFisica:
             try:
                 autor = input("Digite o autor da obra: ")
                 if autor.strip():
-                    self.autor = autor
+                    self.autor = [autor]
                     break
                 else:
                     raise ValueError("O autor não pode ser vazio.")
@@ -72,7 +84,7 @@ class ObraFisica:
                     raise ValueError("A quantidade deve ser um número inteiro.")
             except ValueError as e:
                 print(e)
-        
+        """
         # Exemplar
         while True:
             try:
@@ -96,11 +108,26 @@ class ObraFisica:
                     raise ValueError("O estado não pode ser vazio.")
             except ValueError as e:
                 print(e)
-
+        """
     @classmethod
     def from_db(cls, titulo, autor, data_publicacao, paginas, quantidade, exemplar, estado):
         instance = cls(titulo, autor, data_publicacao, paginas, quantidade, exemplar, estado)
         return instance
+
+    @property
+    def id(self):
+        return self._id
+    
+    @id.setter
+    def id(self, novo_id):
+        novo_id = novo_id.replace("-", "")  # Remove hífens, se houver
+
+        if not novo_id.isdigit():
+            raise ValueError("ISBN deve ser composto apenas por números.")
+
+        if len(novo_id) != 10 and len(novo_id) != 13 and len(novo_id) != 8:
+            raise ValueError("ISBN deve ter 10 ou 13 dígitos. ISSN deve ter 8 dígitos")
+        self._id = novo_id
 
     @property
     def titulo(self):
@@ -181,7 +208,6 @@ class ObraFisica:
         if id_exemplar in self._exemplar:
             raise ValueError(f"O exemplar com ID {id_exemplar} já existe.")
         self._exemplar[id_exemplar] = "disponível"
-
 
     
     @property
