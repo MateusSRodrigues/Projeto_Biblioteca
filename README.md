@@ -93,20 +93,17 @@ O diagrama UML do projeto, apresentado na imagem anexada, fornece uma visão det
 https://app.diagrams.net/#G10LmEIUE0eA6HMtcsmjvOs68jcEctLBKA#%7B%22pageId%22%3A%22NGueF8EDhnSrrotay3M1%22%7D 
 
 Tecnologias Utilizadas
-
     Python 3.8
     Django 3.2
     PostgreSQL 13
     Bootstrap 4.6
 
 Requisitos de Execução
-
     Python 3.8 ou superior instalado
     Django 3.2 ou superior instalado
     PostgreSQL 13 ou superior instalado
 
 Instalação
-
     Clonar o repositório do projeto.
     Criar um ambiente virtual.
     Ativar o ambiente virtual.
