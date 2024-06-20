@@ -10,12 +10,12 @@ class Pessoa:
             self.senha = senha
 
     def _sup_interactive(self):
-        # Nome
+        # Nome-32
         while True:
             try:
                 nome = input("Digite o nome: ")
                 if nome.strip():
-                    self.nome = nome
+                    self._nome = nome
                     break
                 else:
                     raise ValueError("O nome não pode ser vazio.")
@@ -27,7 +27,7 @@ class Pessoa:
             try:
                 email = input("Digite o email: ")
                 if email.strip():
-                    self.email = email
+                    self._email = email
                     break
                 else:
                     raise ValueError("O email não pode ser vazio.")
@@ -39,7 +39,7 @@ class Pessoa:
             try:
                 cpf = input("Digite o CPF: ")
                 if cpf.strip():
-                    self.cpf = cpf
+                    self._cpf = cpf
                     break
                 else:
                     raise ValueError("O CPF não pode ser vazio.")

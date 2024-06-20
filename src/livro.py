@@ -248,7 +248,8 @@ class Livro(ObraFisica):
 
     @genero.setter
     def genero(self, novo_genero):
-        """
-        Setter da propriedade genero. Valida e
 
-        """
+        if novo_genero.isdigit():
+            raise ValueError("O genero deve ser composto apenas por letras.")
+        
+        self._genero = novo_genero

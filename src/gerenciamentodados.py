@@ -101,42 +101,44 @@ class GerenciamentoDados:
             return []
         finally:
             db.disconnect()
-    
+
+    @staticmethod
     def inserirCadastro(pessoa : Pessoa) -> bool:
         db = DatabaseManager()
         db.connect()
         try:
 
-            if db.connection():
+            
                 query = """
                 INSERT INTO Usuario (nome, email, cpf, endereco, senha, tipo)
                 VALUES (%s, %s, %s, %s, %s, %s)
                 """
 
-            if isinstance(pessoa, Professor):
-                tipo = "Professor"
-            elif isinstance(pessoa, Estudante):
-                tipo = "Estudante"
-            elif isinstance(pessoa, administrador.Administrador):
-                tipo = "Administrador"
+                print("aqui")
+                if isinstance(pessoa, Professor):
+                    tipo = "Professor"
+                elif isinstance(pessoa, Estudante):
+                    tipo = "Estudante"
+                elif isinstance(pessoa, administrador.Administrador):
+                    tipo = "Administrador"
+                print("aqui")
             
-            
-            params = (pessoa.nome, pessoa.email, pessoa.cpf, pessoa.endereco, pessoa.senha, tipo)
-            last_row_id = db.execute_query(query, params)
-            if last_row_id:
-                print(f"Cadastro inserido com sucesso. ID: {last_row_id}")
-                return True
-            else:
-                print("Erro ao inserir cadastro.")
-                return False
+                params = (pessoa.nome, pessoa.email, pessoa.cpf, pessoa.endereco, pessoa.senha, tipo)
+                last_row_id = db.execute_query(query, params)
+                if last_row_id:
+                    print(f"Cadastro inserido com sucesso. ID: {last_row_id}")
+                    return True
+                else:
+                    print("Erro ao inserir cadastro.")
+                    return False
+                
         except Exception as e:
             print(f"Erro: {e}")
             return False
         finally:
             db.disconnect()
 
-teste = Estudante()
-GerenciamentoDados.inserirCadastro(teste)
+
 """
 # Exemplo de uso
 teste = Livro('leia', '2589631460', 'terror', 'testinhe', ['jorgite'], '2020-04-04', 50, 5) 

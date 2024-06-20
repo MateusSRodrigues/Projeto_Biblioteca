@@ -1,5 +1,5 @@
 from .obrafisica import ObraFisica
-from .gerenciamentodados import gerenciamentodados
+from .gerenciamentodados import GerenciamentoDados
 import os,termios, sys, tty
 import time
 
@@ -16,7 +16,6 @@ class Sistema:
         email = input("Email: ")
         cpf = input("CPF: ")
         endereco = input("Endereco: ")
-        saldo = input("Saldo")
         senha = input("Senha: ")
         #chama a funçao consultar
         #se ja existir manda msg de erro e chama o menu denovo
@@ -74,7 +73,7 @@ class Sistema:
                     if opcao [c % len(opcao)] == opcao[2]: #Pesquisar obra
                        #chama a funcao pesquisar obra do banco de dados
                         titulo = input(print("Digite o titulo da obra:"))
-                        aux = gerenciamentodados.pesquisarObraPorTitulo(titulo)
+                        aux = GerenciamentoDados.pesquisarObraPorTitulo(titulo)
                         result = self.selecionar(aux)
                         print(result.retornar_atributos())
 
@@ -91,5 +90,5 @@ class Sistema:
             raise IndexError("Índice fora do intervalo válido")
         
 
-teste = Sistema()
-teste.menuInicial()
+#teste = Sistema()
+#teste.menuInicial()
