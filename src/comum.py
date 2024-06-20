@@ -32,7 +32,6 @@ class Comum(Usuario):
         os.system("clear")
         print("Senha alterada com sucesso!!")
         input("Pressione enter.")
-        self.menuUsuario()
       else:
         os.system("clear")
         print ("As senhas nao sao iguais. Tente novamente!!")
@@ -42,7 +41,6 @@ class Comum(Usuario):
       os.system("clear")
       print ("Senha incorreta!!")
       input("Pressione enter.")
-      self.menuUsuario()
   pass
   
   def atualizarEndereco(self):
