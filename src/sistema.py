@@ -1,5 +1,6 @@
 from .obrafisica import ObraFisica
 from .gerenciamentodados import GerenciamentoDados
+from .pessoa import Pessoa
 import os,termios, sys, tty
 import time
 
@@ -10,12 +11,12 @@ class Sistema:
         #chama a funçao que consultarcadastro(cpf,senha)
         # if "funcao consultar cadastro" retornar false chama menu inicial de novo
         # else cria uma pessoa(adm,graduando...) e chama a sua funcao menu 
-    pass
+    
 
     def cadastrar(self):
         pessoa = Pessoa()
-        gerenciamentodados.inserirCadastro(pessoa)
-    pass
+        GerenciamentoDados.inserirCadastro(pessoa)
+    
 
     def menuInicial(self):
         def get_char():        # Função para capturar o caractere pressionado pelo usuário

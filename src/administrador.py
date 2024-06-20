@@ -13,7 +13,7 @@ class Administrador(Pessoa, Usuario):
 
     def __init__(self, nome, email, cpf, endereco, saldo, senha):
         super().__init__(nome, email, cpf, endereco, saldo, senha)
-'''
+    '''
     def deletarUsuario(self):
         cpf = input("CPF do usuario a ser deletado")
         #chama consultacadastro() se for false volta pro menu
@@ -97,21 +97,19 @@ class Administrador(Pessoa, Usuario):
     def procurarObra():
         os.system('clear')
 
-         try:
+        try:
             titulo = input("Insira o titulo do livro: ")
             titulo = str(titulo)
             if not titulo:
                 raise ValueError("O titulo não pode ser vazio.")
             else:
                 gerenciamentodados.pesquisarObraPorTitulo(titulo)
-                break
+                #break
         except ValueError as e:
             print(e)
             input("Pressione enter para tentar novamente.")
             os.system("clear")
 
-        
-    pass
 
     def menuUsuario(self):
         
@@ -229,4 +227,4 @@ class Administrador(Pessoa, Usuario):
                     if opcao[c % len(opcao)] == opcao[10]:  # Deletar usuario
                         self.deletarUsuario()
                     time.sleep(500)
-                pass
+                
