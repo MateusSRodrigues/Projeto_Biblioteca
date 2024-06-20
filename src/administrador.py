@@ -24,7 +24,7 @@ class Administrador(Pessoa, Usuario):
         #imprime resultados da funçao que calcula multa
         pass
   '''  
-    def criarLivro(self):
+    def criarLivro(self) -> None:
             novo_livro = Livro()
             classe = gerenciamentodados.GerenciamentoDados()
             classe.inserirObra(novo_livro)
