@@ -48,21 +48,18 @@ Funcionalidades
 O sistema de biblioteca avançado implementa as funcionalidades básicas de gerenciamento de obras, usuários e empréstimos, conforme descrito a seguir:
 
 Gerenciamento de Obras:
-
     Cadastro detalhado de livros e periódicos, incluindo título, autor, editora, ISBN, gênero, data de publicação, resumo, palavras-chave, quantidade de exemplares e outras informações relevantes.
     Edição de informações cadastradas, permitindo manter o acervo atualizado.
     Consulta eficiente por diversos critérios, facilitando a localização de materiais específicos.
     Exclusão segura, com mecanismos para garantir que não haja empréstimos ou reservas em aberto.
 
 Gerenciamento de Usuários:
-
     Criação de perfis de usuários completos, incluindo nome, CPF, endereço, telefone, email, data de nascimento, tipo de usuário (aluno, professor, pesquisador, etc.) e outras informações relevantes.
     Edição de informações cadastradas nos perfis de usuários, permitindo manter os dados atualizados.
     Consulta eficiente por diversos critérios, facilitando a localização de perfis específicos.
     Exclusão segura, com mecanismos para garantir que não haja empréstimos ou reservas em aberto.
 
 Gerenciamento de Empréstimos:
-
     Controle completo do processo de empréstimo, incluindo seleção de obras, verificação de disponibilidade, registro de data de empréstimo e prazo de devolução, identificação do usuário e histórico de empréstimos.
     Registro de devoluções, atualizando o status das obras no sistema e notificando o usuário.
     Consulta de empréstimos em andamento, com informações sobre obras emprestadas, usuários, datas de empréstimo e devolução, prazos pendentes e histórico de empréstimos.
@@ -73,21 +70,18 @@ Funcionalidades Aprimoradas
 Além das funcionalidades básicas, o sistema de biblioteca avançado oferece recursos aprimorados que expandem suas capacidades e o tornam uma ferramenta ainda mais completa para o gerenciamento de bibliotecas.
 
 Gerenciamento Avançado de Obras:
-
     Classificação das obras por diversos critérios (gênero, autor, editora, assunto, etc.) para facilitar a organização e a busca por materiais específicos.
     Importação e exportação de dados de obras em formatos padronizados (CSV, MARC, etc.), permitindo a integração com outros sistemas e a troca de informações.
     Controle de exemplar único para obras raras ou de valor histórico, assegurando sua preservação e disponibilidade para consulta.
     Geração de etiquetas de identificação para as obras, facilitando o controle do acervo e a organização física da biblioteca.
 
 Gerenciamento Avançado de Usuários:
-
     Definição de diferentes níveis de acesso para os usuários, permitindo controlar as funcionalidades disponíveis para cada tipo de usuário (administrador, bibliotecário, aluno, professor, pesquisador, etc.).
     Integração com sistemas de autenticação externos (LDAP, Active Directory, etc.), permitindo o uso de credenciais já existentes para acessar o sistema da biblioteca.
     Envio de notificações personalizadas para os usuários, por email ou SMS, informando sobre datas de devolução próximas, reservas disponíveis, novos materiais no acervo, etc.
     Geração de relatórios de uso individualizado, fornecendo informações sobre os hábitos de leitura de cada usuário e auxiliando na personalização dos serviços da biblioteca.
 
 Gerenciamento Avançado de Empréstimos:
-
     Definição de políticas de empréstimo flexíveis, permitindo configurar prazos de empréstimo, quantidade máxima de obras por usuário, renovações automáticas, multas por atrasos, etc.
     Criação de listas de espera para obras indisponíveis, notificando os usuários automaticamente quando a obra desejada estiver disponível para empréstimo.
     Integração com sistemas de pagamento online, permitindo o pagamento de multas e taxas de reserva diretamente pelo sistema da biblioteca.
