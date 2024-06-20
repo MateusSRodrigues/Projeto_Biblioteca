@@ -1,5 +1,5 @@
 from .obrafisica import ObraFisica
-from .gerenciamentodados import GerenciamentoDados
+
 from .pessoa import Pessoa
 import os,termios, sys, tty
 import time
@@ -15,6 +15,7 @@ class Sistema:
 
     def cadastrar(self) -> None:
         pessoa = Pessoa()
+        from .gerenciamentodados import GerenciamentoDados
         GerenciamentoDados.inserirCadastro(pessoa)
     
 
@@ -69,11 +70,14 @@ class Sistema:
                     if opcao [c % len(opcao)] == opcao[2]: #Pesquisar obra
                        #chama a funcao pesquisar obra do banco de dados
                         titulo = input(print("Digite o titulo da obra:"))
+                        from .gerenciamentodados import GerenciamentoDados
                         aux = GerenciamentoDados.pesquisarObraPorTitulo(titulo)
-                        result = self.selecionar(aux)
-                        print(result.retornar_atributos())
+                        if aux != []:
+                            result = self.selecionar(aux)
+                            print(result.retornar_atributos())
+                        
 
-                        time.sleep(500)
+                        time.sleep(1000)
 
     def selecionar(self, lista: list[ObraFisica]):
         for index, obra in enumerate(lista, start=1):

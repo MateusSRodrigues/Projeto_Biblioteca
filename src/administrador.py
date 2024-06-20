@@ -2,8 +2,8 @@ from .pessoa import Pessoa
 from .usuario import Usuario
 from .livro import Livro
 from .periodico import Periodico
-from .sistema import Sistema
-from . import gerenciamentodados
+#from .sistema import Sistema
+#from . import gerenciamentodados
 import time
 
 import os, termios, sys, tty
@@ -12,8 +12,8 @@ import time
 #oi
 class Administrador(Pessoa, Usuario):
 
-    def __init__(self, nome, email, cpf, endereco, saldo, senha):
-        super().__init__(nome, email, cpf, endereco, saldo, senha)
+    def __init__(self, nome, email, cpf, endereco, senha):
+        super().__init__(nome, email, cpf, endereco, senha)
     '''
     def deletarUsuario(self):
         cpf = input("CPF do usuario a ser deletado")
@@ -26,16 +26,18 @@ class Administrador(Pessoa, Usuario):
         pass
   '''  
     def criarLivro(self) -> None:
+            from gerenciamentodados import GerenciamentoDados
             novo_livro = Livro()
-            classe = gerenciamentodados.GerenciamentoDados()
+            classe = GerenciamentoDados()
             classe.inserirObra(novo_livro)
-            pass
+        
     
     def criarPeriodico(self) -> None:
+            from gerenciamentodados import GerenciamentoDados
             novo_periodico = Periodico()
-            classe = gerenciamentodados.GerenciamentoDados()
+            classe = GerenciamentoDados()
             classe.inserirObra(novo_periodico)
-            pass 
+            
    
         
         
@@ -93,10 +95,11 @@ class Administrador(Pessoa, Usuario):
                     if opcao[c % len(opcao)] == opcao[1]:  #Periodico
                         self.criarPeriodico()
                         
-        pass
+        
 
     def procurarObra() -> None:
         os.system('clear')
+        from gerenciamentodados import GerenciamentoDados
 
         try:
             titulo = input("Insira o titulo do livro: ")
@@ -104,7 +107,7 @@ class Administrador(Pessoa, Usuario):
             if not titulo:
                 raise ValueError("O titulo não pode ser vazio.")
             else:
-                gerenciamentodados.pesquisarObraPorTitulo(titulo)
+                GerenciamentoDados.pesquisarObraPorTitulo(titulo)
                 #break
         except ValueError as e:
             print(e)
@@ -113,6 +116,8 @@ class Administrador(Pessoa, Usuario):
 
 
     def menuUsuario(self) -> None:
+        from .gerenciamentodados import GerenciamentoDados
+        from .sistema import Sistema
         
         def get_char():  # Função para capturar o caractere pressionado pelo usuário
             fd = sys.stdin.fileno()
@@ -178,7 +183,7 @@ class Administrador(Pessoa, Usuario):
                     if opcao[c % len(opcao)] == opcao[3]:  #procurar obra
 
                         titulo = input(print("Digite o titulo da obra:"))
-                        aux = gerenciamentodados.GerenciamentoDados()
+                        aux = GerenciamentoDados()
                         aux.pesquisarObraPorTitulo(titulo)
                         result = Sistema.selecionar(aux)
                         print(result.retornar_atributos())    
@@ -189,3 +194,5 @@ class Administrador(Pessoa, Usuario):
 
                     time.sleep(500)
                 
+t = Administrador('mateus','teste@gmail.com','12345678956','rua tal','25896325')
+t.menuUsuario()

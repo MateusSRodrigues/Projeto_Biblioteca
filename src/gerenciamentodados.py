@@ -3,9 +3,9 @@ from .obrafisica import ObraFisica
 from .livro import Livro
 from .periodico import Periodico
 from .pessoa import Pessoa
-from .professor import Professor
-from .estudante import Estudante
-from . import administrador
+#from .professor import Professor
+#from .estudante import Estudante
+#from . import administrador, estudante, professor
 from datetime import date, timedelta
 
 class GerenciamentoDados:
@@ -105,6 +105,9 @@ class GerenciamentoDados:
 
     @staticmethod
     def inserirCadastro(pessoa : Pessoa) -> bool:
+        from .professor import Professor
+        from .estudante import Estudante
+        from .administrador import Administrador
         db = DatabaseManager()
         db.connect()
         try:
@@ -120,7 +123,7 @@ class GerenciamentoDados:
                     tipo = "Professor"
                 elif isinstance(pessoa, Estudante):
                     tipo = "Estudante"
-                elif isinstance(pessoa, administrador.Administrador):
+                elif isinstance(pessoa, Administrador):
                     tipo = "Administrador"
                 print("aqui")
             

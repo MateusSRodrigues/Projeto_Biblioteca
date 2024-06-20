@@ -85,7 +85,7 @@ class DatabaseManager:
             self.connection.rollback()
 
 
-    def numero_obras_disponiveis(self, obra_titulo):
+    def numero_obras_disponiveis(self, obra_id):
         try:
             query = """
                 SELECT COUNT(e.id) as num_disponiveis
@@ -93,7 +93,7 @@ class DatabaseManager:
                 JOIN ObraFisica o ON e.obra_fisica_id = o.id
                 WHERE o.titulo LIKE %s AND e.estado = 'disponivel'
             """
-            params = (f"%{obra_titulo}%",)
+            params = (f"%{obra_id}%",)
             result = self.fetch_one(query, params)
             return result['num_disponiveis'] if result else 0
         except Error as e:

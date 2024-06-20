@@ -108,6 +108,10 @@ class Comum(Usuario):
         except ValueError as e:
             print(f"Erro: {e}")
             input("Pressione enter para tentar novamente.")
+
+  def listarEmprestimo(self) -> None:
+     #implementar listar aqui
+     pass
   
 
   def menuUsuario(self) -> None:
@@ -155,8 +159,8 @@ class Comum(Usuario):
                     self.ver_informacoes()
 
 
-                  #if opcao [c % len(opcao)] == opcao[1]: #listar meus emprestimos
-
+                  if opcao [c % len(opcao)] == opcao[1]: #listar meus emprestimos
+                    self.listarEmprestimos()
                       #print(opcao[0])#deverá chamar a fucao cancelar reserva do gerenciamento                        
 
                   if opcao [c % len(opcao)] == opcao[2]:  #Atualizar senha
@@ -167,3 +171,6 @@ class Comum(Usuario):
                     
                   if opcao [c % len(opcao)] == opcao[4]:  #Atualizar email
                     self.atualizarEmail()
+
+t = Comum()
+t.menuUsuario()
