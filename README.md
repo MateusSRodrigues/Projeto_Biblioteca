@@ -1,11 +1,47 @@
 # TP
  Esse repositório tem por finalidade criar um **Sistema de Biblioteca Avançado**, em Python, para apresentação de um trabalho em grupo de "Programação Orientada a objetos", da UFMG.
 ![Python](https://img.shields.io/pypi/pyversions/:packageName)
-![Python](https://img.shields.io/github/pipenv/locked/python-version/:user/:repo)
-
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
  ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 ## Problema
+# Visão Geral
+Este projeto se propõe a resolver problemas contemporâneos enfrentados pelas bibliotecas físicas, explorando como um Sistema de Biblioteca Avançado pode melhorar significativamente o acesso e a eficácia dessas instituições.
+
+# Desafios Atuais das Bibliotecas Físicas
+As bibliotecas físicas enfrentam desafios significativos, incluindo:
+    Necessidade de adaptação às expectativas dos usuários por acesso rápido e conveniente à informação digitalizada.
+    Continuação do suporte eficaz ao acervo físico.
+    Digitalização de informações.
+    Mudança nos padrões de comportamento dos usuários.
+
+Esses desafios exigem que as bibliotecas busquem soluções inovadoras para não apenas sobreviver, mas prosperar na era digital.
+Solução Proposta: Sistema de Biblioteca Avançado
+
+O Sistema de Biblioteca Avançado visa resolver esses desafios através da implementação de tecnologias modernas que facilitam a gestão de acervos híbridos, integrando eficientemente recursos físicos e digitais. As principais funcionalidades incluem:
+
+    Gestão de Acervos Híbridos: Integração de recursos físicos e digitais para uma gestão eficiente.
+    Acessibilidade à Informação: Interfaces intuitivas que proporcionam uma experiência de usuário agradável e eficaz.
+    Otimização de Processos Internos: Melhoria de processos como catalogação e empréstimo.
+    Serviços Personalizados: Promoção de serviços que atendam às necessidades específicas dos usuários modernos.
+
+Objetivos do Projeto
+
+    Melhorar o Acesso à Informação: Facilitar o acesso tanto a recursos digitais quanto físicos.
+    Aumentar a Eficiência do Trabalho: Otimizar processos internos nas bibliotecas.
+    Oferecer Experiência Personalizada: Atender às necessidades específicas dos usuários com serviços personalizados.
+
+Resultados Esperados
+
+Espera-se que o projeto ofereça:
+
+    Análise detalhada dos desafios e oportunidades enfrentados pelas bibliotecas físicas contemporâneas.
+    Propostas de soluções concretas e viáveis.
+    Promoção de um ambiente bibliotecário mais dinâmico, acessível e eficaz.
+
+Conclusão
+
+O Sistema de Biblioteca Avançado tem como objetivo principal transformar a forma como as bibliotecas físicas operam, integrando tecnologias modernas para atender às demandas da era digital. Com isso, espera-se não apenas melhorar o acesso à informação, mas também aumentar a eficácia e eficiência do trabalho realizado pelas bibliotecas.
+  
   O sistema de Biblioteca Avançado visa abordar os desafios enfrentados por bibliotecas modernas e seus membros. Nas bibliotecas tradicionais, os processos de reserva, empréstimo e devolução de livros geralmente são manuais, consumindo tempo tanto dos membros quanto dos funcionários. Além disso, a gestão de multas e o acompanhamento do catálogo de livros podem ser complexos. À medida que as bibliotecas buscam modernizar e melhorar a experiência do usuário, o gerenciamento eficiente se torna essencial.
 
   Este projeto se torna importante em um contexto onde a conveniência, eficiência e acessibilidade são essenciais. O sistema aborda as necessidades tanto de membros da biblioteca quanto de funcionários, proporcionando uma experiência aprimorada no processo de busca, reserva, retirada, devolução e avaliação de livros. Além disso, a funcionalidade de gerenciamento de multas atendem a uma ampla gama de requisitos das bibliotecas, tornando-o uma solução valiosa.
