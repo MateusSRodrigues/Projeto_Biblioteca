@@ -1,13 +1,17 @@
-# TP
- Esse repositório tem por finalidade criar um **Sistema de Biblioteca Avançado**, em Python, para apresentação de um trabalho em grupo de "Programação Orientada a objetos", da UFMG.
+# POO_TP_SBA
+
 ![Python](https://img.shields.io/pypi/pyversions/:packageName)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
  ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+ <h1 align="center"> TP-FINAL-POO-Biblioteca </h1>
+ 
+ Esse repositório tem por finalidade criar um **Sistema de Biblioteca Avançado**, em Python, para apresentação de um trabalho em grupo de "Programação Orientada a objetos", da UFMG.
+
 ## Problema
 Visão Geral:
 Este projeto se propõe a resolver problemas contemporâneos enfrentados pelas bibliotecas físicas, explorando como um Sistema de Biblioteca Avançado pode melhorar significativamente o acesso e a eficácia dessas instituições.
 
-# Desafios atuais das Bibliotecas físicas
+## Desafios atuais das Bibliotecas físicas
 As bibliotecas físicas enfrentam desafios significativos, incluindo:
     Necessidade de adaptação às expectativas dos usuários por acesso rápido e conveniente à informação digitalizada.
     Continuação do suporte eficaz ao acervo físico.
@@ -123,7 +127,3 @@ Para usar o sistema é preciso ter um compilador Python e um Banco de dados Mysq
 Esse projeto utiliza as seguintes linguagem, ferramentas e bibliotecas:
    * Linguagem: [Python](https://www.python.org/downloads/)
    * Compilação: [Banco de dados Mysql](https://www.mysql.com/why-mysql/white-papers/10-principais-motivos-para-usar-o-mysql-como-um-banco-de-dados-incorporado/)
-
-Contato
-
-Para dúvidas ou sugestões, entre em contato com seu nome.
