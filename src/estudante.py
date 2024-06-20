@@ -2,7 +2,7 @@ from .pessoa import Pessoa
 from .comum import Comum
 
 class Estudante(Pessoa, Comum):
-    def __init__(self, nome=None, email=None, cpf=None, endereco=None, senha=None, matricula=None):
+    def __init__(self, nome:str =None , email:str =None, cpf:str =None, endereco:str =None, senha:str =None, matricula:str =None):
         super().__init__(nome, email, cpf, endereco, senha)
         if matricula == None:
             while True:
