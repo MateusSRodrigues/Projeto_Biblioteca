@@ -30,7 +30,7 @@ class Administrador(Pessoa, Usuario):
             classe.inserirObra(novo_livro)
             pass
     
-    def criarPeriodico(self):
+    def criarPeriodico(self) -> None:
             novo_periodico = Periodico()
             classe = gerenciamentodados.GerenciamentoDados()
             classe.inserirObra(novo_periodico)
@@ -39,7 +39,7 @@ class Administrador(Pessoa, Usuario):
         
         
     
-    def criarObra(self):
+    def criarObra(self) -> None:
         def get_char():  # Função para capturar o caractere pressionado pelo usuário
             fd = sys.stdin.fileno()
             old_settings = termios.tcgetattr(fd)
@@ -94,7 +94,7 @@ class Administrador(Pessoa, Usuario):
                         
         pass
 
-    def procurarObra():
+    def procurarObra() -> None:
         os.system('clear')
 
         try:
@@ -111,7 +111,7 @@ class Administrador(Pessoa, Usuario):
             os.system("clear")
 
 
-    def menuUsuario(self):
+    def menuUsuario(self) -> None:
         
         def get_char():  # Função para capturar o caractere pressionado pelo usuário
             fd = sys.stdin.fileno()
