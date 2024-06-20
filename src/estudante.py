@@ -1,7 +1,7 @@
 from .pessoa import Pessoa
-#from .comum import Comum
+from .comum import Comum
 
-class Estudante(Pessoa):
+class Estudante(Pessoa, Comum):
     def __init__(self, nome=None, email=None, cpf=None, endereco=None, senha=None, matricula=None):
         super().__init__(nome, email, cpf, endereco, senha)
         if matricula == None:

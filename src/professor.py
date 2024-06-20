@@ -20,8 +20,9 @@ class Professor(Pessoa):
 
 
 from .pessoa import Pessoa
+from .comum import Comum
 
-class Professor(Pessoa):
+class Professor(Pessoa, Comum):
     def __init__(self, nome=None, email=None, cpf=None, endereco=None, senha=None, n_inscricao=None):
         """
         Construtor da classe Professor.

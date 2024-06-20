@@ -143,7 +143,7 @@ class Comum(Usuario):
                     self.ver_informacoes()
 
 
-                  if opcao [c % len(opcao)] == opcao[1]: #listar meus emprestimos
+                  #if opcao [c % len(opcao)] == opcao[1]: #listar meus emprestimos
 
                       #print(opcao[0])#deverá chamar a fucao cancelar reserva do gerenciamento                        
 
