@@ -44,8 +44,31 @@ class Comum(Usuario):
   pass
   
   def atualizarEndereco(self):
-    os.system("clear")
-    self.endereco = input("Digite seu novo endereco: ")
+      while True:
+          os.system("clear")
+          try:
+              novo_endereco = input("Insira o novo endereço: ")
+              novo_endereco = novo_endereco.lower()
+ 
+              if not novo_endereco:
+                  raise ValueError("O endereço não pode ser vazio.")
+
+              if "rua" not in novo_endereco:
+                  raise ValueError('O endereço deve conter a rua.')
+
+              if "bairro" not in novo_endereco:
+                  raise ValueError('O endereço deve conter o bairro.')
+
+              if not any(char.isdigit() for char in novo_endereco):
+                  raise ValueError('O endereço deve conter o numero da residencia')
+
+              self.endereco = novo_endereco
+              print("Endereço alterado com sucesso!")
+              break
+
+          except ValueError as e:
+              print(f"Erro: {e}")
+              input("Pressione enter para tentar novamente.")
   pass
   
   def atualizarEmail(self):
