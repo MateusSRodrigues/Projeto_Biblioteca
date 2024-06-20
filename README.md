@@ -121,8 +121,8 @@ Para usar o sistema é preciso ter um compilador Python e um Banco de dados Mysq
 ...
 # Ferramentas
 Esse projeto utiliza as seguintes linguagem, ferramentas e bibliotecas:
-    * Linguagem: Python
-    * Compilação: Banco de dados Mysql
+   * Linguagem: [Python](https://www.python.org/downloads/)
+   * Compilação: [Banco de dados Mysql](https://www.mysql.com/why-mysql/white-papers/10-principais-motivos-para-usar-o-mysql-como-um-banco-de-dados-incorporado/)
 
 Contato
 
