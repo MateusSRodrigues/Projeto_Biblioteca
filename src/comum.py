@@ -24,8 +24,21 @@ class Comum(Usuario):
   def atualizarSenha(self):
     os.system("clear")
     senha_atual = input("Digite a sua senha atual: ")
+      
     if senha_atual == self.senha:
-      nova_senha = input("Digite a sua nova senha: ")
+      while True:
+        try:
+            nova_senha = input("Digite a sua nova senha: ")
+            if not nova_senha:
+                raise ValueError("A senha não pode ser vazia.")
+            if ' ' in nova_senha:
+                raise ValueError("A senha não pode ter espaco")
+            else:
+                break
+        except ValueError as e:
+            print(e)
+            input("Pressione enter para tentar novamente.")
+            os.system("clear")
       confirma_nova_senha = input("Confirme a sua nova senha: ")
       if nova_senha == confirma_nova_senha:
         self.senha = nova_senha
