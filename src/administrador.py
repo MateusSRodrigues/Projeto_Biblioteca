@@ -13,7 +13,7 @@ class Administrador(Pessoa, Usuario):
 
     def __init__(self, nome, email, cpf, endereco, saldo, senha):
         super().__init__(nome, email, cpf, endereco, saldo, senha)
-
+'''
     def deletarUsuario(self):
         cpf = input("CPF do usuario a ser deletado")
         #chama consultacadastro() se for false volta pro menu
@@ -23,7 +23,7 @@ class Administrador(Pessoa, Usuario):
         input("CPF do usuario a ser deletado: ")
         #imprime resultados da funçao que calcula multa
         pass
-    
+  '''  
     def criarLivro(self):
             novo_livro = Livro()
             classe = gerenciamentodados.GerenciamentoDados()
@@ -52,7 +52,7 @@ class Administrador(Pessoa, Usuario):
 
         c = 0
         while True:
-            opcao = ["Livro", "Periodico", "Trabalho academico"]
+            opcao = ["Livro", "Periodico"]
             cabecalho = [
                 "Pressione 'W' para subir 'S' para descer e 'D' para selecionar.\n",
                 "Qual tipo de obra deseja inserir?"
@@ -92,10 +92,26 @@ class Administrador(Pessoa, Usuario):
                     if opcao[c % len(opcao)] == opcao[1]:  #Periodico
                         self.criarPeriodico()
                         
-                    if opcao[c % len(opcao)] == opcao[2]:  #Trabalho academico
-                        self.criarTrabalhoAcademico()
-                        #print("2")  #deverá chamar a fucao fazer emprestimo do gerenciamento
-                pass
+        pass
+
+    def procurarObra():
+        os.system('clear')
+
+         try:
+            titulo = input("Insira o titulo do livro: ")
+            titulo = str(titulo)
+            if not titulo:
+                raise ValueError("O titulo não pode ser vazio.")
+            else:
+                gerenciamentodados.pesquisarObraPorTitulo(titulo)
+                break
+        except ValueError as e:
+            print(e)
+            input("Pressione enter para tentar novamente.")
+            os.system("clear")
+
+        
+    pass
 
     def menuUsuario(self):
         
@@ -187,9 +203,6 @@ class Administrador(Pessoa, Usuario):
 
                         #print("5")  #deverá chamar a fucao inserir obra do gerenciamento
                         self.criarObra()
-                        
-                        
-                        
 
                     if opcao[c % len(opcao)] == opcao[6]:  #Atualizar obra
 
