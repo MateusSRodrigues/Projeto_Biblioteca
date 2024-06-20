@@ -49,7 +49,6 @@ class Comum(Usuario):
   pass
   
   def atualizarEmail(self):
-    os.system("clear")
     while True:
         os.system("clear")
         try:
@@ -69,7 +68,7 @@ class Comum(Usuario):
             self.email = novo_email
             print("Email alterado com sucesso!")
             break
-          
+
         except ValueError as e:
             print(f"Erro: {e}")
             input("Pressione enter para tentar novamente.")
