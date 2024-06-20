@@ -140,18 +140,67 @@ class GerenciamentoDados:
 
 
     @staticmethod
-    def procurarCadastro(pessoa : Pessoa) -> bool:
+    def procurarCadastro(pessoa : Pessoa) -> Pessoa:
         db = DatabaseManager()
         db.connect()
         try:
             query = "SELECT * FROM Usuario WHERE cpf = %s"
-            result = db.fetch_one(query, (pessoa.cpf,))
-            return result is not None
+            result = db.fetch_one(query, (pessoa._cpf))
+            if result:
+                pessoa = Pessoa(
+                nome=result['nome'],
+                email=result['email'],
+                cpf=result['cpf'],
+                endereco=result['endereco'],
+                senha=result['senha']
+            )
+            return pessoa
+        #parei aqui
         except Exception as e:
             print(f"Erro ao procurar cadastro: {e}")
             return False
         finally:
             db.disconnect()
+
+    def verificar_disponibilidade_exemplar(id_obra_fisica):
+        db = DatabaseManager()
+        db.connect()
+        try:
+            query = """
+                SELECT COUNT(e.id) as num_disponiveis
+                FROM Exemplar e
+                WHERE e.obra_fisica_id = %s AND e.estado = 'disponivel'
+            """
+            result = db.fetch_one(query, (id_obra_fisica,))
+            return result['num_disponiveis'] if result else 0
+        except Exception as e:
+            print(f"Erro ao verificar disponibilidade: {e}")
+            return 0
+        finally:
+            db.disconnect()
+
+   # def InserirEmprestimo(obra: ObraFisica, pessoa: Pessoa) -> bool:
+
+
+    
+
+def main():
+    resultado = GerenciamentoDados.verificar_disponibilidade_exemplar('2589631456')
+    print(resultado)
+    """
+    cpf = input("Digite o CPF para buscar o cadastro: ")
+    pessoa = Pessoa('mateus','mateus@ufmg','02275555625','rua tal','2589632')
+    resultado = GerenciamentoDados.procurarCadastro(pessoa)
+    if resultado:
+        print("Cadastro encontrado:")
+        print(f"Nome: {resultado._nome}")
+        print(f"Email: {resultado._email}")
+        print(f"Endereço: {resultado._endereco}")
+    else:
+        print("Cadastro não encontrado.")
+    """
+if __name__ == "__main__":
+    main()
 
 
 """

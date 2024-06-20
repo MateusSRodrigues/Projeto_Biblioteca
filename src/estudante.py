@@ -15,6 +15,5 @@ class Estudante(Pessoa, Comum):
                         raise ValueError("O numero não pode ser vazio.")
                 except ValueError as e:
                     print(e)
-
-teste = Estudante('mateus','mateus@gmail.com','02275555625','Rua tal','264859','2021420730')
-teste.menuUsuario()
+#teste = Estudante('mateus','mateus@gmail.com','02275555625','Rua tal','264859','2021420730')
+#teste.menuUsuario()

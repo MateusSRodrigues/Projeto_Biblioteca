@@ -3,11 +3,11 @@ class Pessoa:
         if nome is None or email is None or cpf is None or endereco is None or senha is None:
             self._sup_interactive()
         else:
-            self.nome = nome
-            self.email = email
-            self.cpf = cpf
-            self.endereco = endereco
-            self.senha = senha
+            self._nome = nome
+            self._email = email
+            self._cpf = cpf
+            self._endereco = endereco
+            self._senha = senha
 
     def _sup_interactive(self):
         # Nome-32
