@@ -113,17 +113,17 @@ Instalação
     Executar as migrações do banco de dados: python manage.py migrate.
     Executar o servidor de desenvolvimento: python manage.py runserver.
 
-Uso
+# Pré-requisitos
 
-Acesse o endereço http://localhost:8000/ em um navegador web. Você poderá se cadastrar como usuário e utilizar as funcionalidades do sistema.
+Para usar o sistema é preciso ter um compilador Python e um Banco de dados Mysql
 
-Documentação
+# Documentação
+...
+# Ferramentas
+Esse projeto utiliza as seguintes linguagem, ferramentas e bibliotecas:
 
-A documentação completa do projeto está disponível na pasta docs.
-
-Contribuições
-
-Contribuições ao projeto são bem-vindas! Você pode enviar issues ou pull requests no repositório do projeto.
+    Linguagem: Python
+    Compilação: Banco de dados Mysql
 
 Contato
 
