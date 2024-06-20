@@ -15,7 +15,10 @@ class Comum(Usuario):
   '''
 
   def ver_informacoes(self):
+    os.system("clear")
     print(f'Nome: {self.nome}\nCPF: {self.CPF} \nEmail: {self.email} \nEndereço: {self.endereco}')
+    input("Pressione enter.")
+
   pass
 
   def atualizarSenha(self):
@@ -26,7 +29,9 @@ class Comum(Usuario):
       confirma_nova_senha = input("Confirme a sua nova senha: ")
       if nova_senha == confirma_nova_senha:
         self.senha = nova_senha
+        os.system("clear")
         print("Senha alterada com sucesso!!")
+        input("Pressione enter.")
         self.menuUsuario()
       else:
         os.system("clear")
@@ -34,8 +39,10 @@ class Comum(Usuario):
         input("Pressione enter.")
         self.atualizarSenha()
     else:
+      os.system("clear")
       print ("Senha incorreta!!")
-      self.menuUsiario()
+      input("Pressione enter.")
+      self.menuUsuario()
   pass
   
   def atualizarEndereco(self):
@@ -86,9 +93,7 @@ class Comum(Usuario):
           elif n == 'd':  # escolhe opção
               if c == 0:
                   if opcao[c] == opcao[0]: #Fazer reserva
-
-                       print(opcao[0])#deverá chamar a fucao fazer reserva do gerenciamento
-
+                    self.ver_informacoes()
 
               else:                     #alterar o que cada opçao faz
                   if opcao [c % len(opcao)] == opcao[0]:    #Ver minhas informacoes
@@ -102,6 +107,8 @@ class Comum(Usuario):
                   if opcao [c % len(opcao)] == opcao[2]:  #Atualizar senha
                     self.atualizarSenha()
 
-                  if opcao [c % len(opcao)] == opcao[3]: # Deletar usuario
-                      
-                      print(opcao[2]) #self.deletarUsuario()
+                  if opcao [c % len(opcao)] == opcao[3]: # Atualizar endereco
+                    self.atualizarEndereco()
+                    
+                  if opcao [c % len(opcao)] == opcao[4]:  #Atualizar email
+                    self.atualizarEmail()
