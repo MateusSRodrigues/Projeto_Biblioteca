@@ -87,8 +87,7 @@ Gerenciamento Avançado de Empréstimos:
     Integração com sistemas de pagamento online, permitindo o pagamento de multas e taxas de reserva diretamente pelo sistema da biblioteca.
     Geração de relatórios estatísticos sobre os empréstimos, fornecendo informações sobre a frequência de uso das obras, o perfil dos usuários e a sazonalidade da demanda.
     
-Diagrama UML
-
+# Diagrama UML
 O diagrama UML do projeto, apresentado na imagem anexada, fornece uma visão detalhada das classes, seus atributos, métodos e relações entre elas. Cada classe é descrita com seus componentes e funcionalidades, demonstrando a organização e modularidade do sistema.
 https://app.diagrams.net/#G10LmEIUE0eA6HMtcsmjvOs68jcEctLBKA#%7B%22pageId%22%3A%22NGueF8EDhnSrrotay3M1%22%7D 
 
