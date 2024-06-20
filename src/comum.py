@@ -14,13 +14,13 @@ class Comum(Usuario):
       print("sua multa é: ") #imprime resultados da funçao que calculaMulta(self.cpf)
   '''
 
-  def ver_informacoes(self):
+  def ver_informacoes(self) -> None:
     os.system("clear")
     print(f'Nome: {self.nome}\nCPF: {self.CPF} \nEmail: {self.email} \nEndereço: {self.endereco}')
     input("Pressione enter.")
 
 
-  def atualizarSenha(self):
+  def atualizarSenha(self) -> None:
     os.system("clear")
     senha_atual = input("Digite a sua senha atual: ")
       
@@ -55,7 +55,7 @@ class Comum(Usuario):
       input("Pressione enter.")
   
   
-  def atualizarEndereco(self):
+  def atualizarEndereco(self) -> None:
       while True:
           os.system("clear")
           try:
@@ -84,7 +84,7 @@ class Comum(Usuario):
               input("Pressione enter para tentar novamente.")
   
   
-  def atualizarEmail(self):
+  def atualizarEmail(self) -> None:
     while True:
         os.system("clear")
         try:
@@ -110,7 +110,7 @@ class Comum(Usuario):
             input("Pressione enter para tentar novamente.")
   
 
-  def menuUsuario(self):
+  def menuUsuario(self) -> None:
       def get_char():        # Função para capturar o caractere pressionado pelo usuário
           fd = sys.stdin.fileno()
           old_settings = termios.tcgetattr(fd)
