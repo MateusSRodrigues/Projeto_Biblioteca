@@ -1,17 +1,52 @@
 from usuario import Usuario
 import os,termios, sys, tty
+import time
 
 class Comum(Usuario):
 
-  def deletarUsuario(self):
+  '''def deletarUsuario(self):
       print("Usuario deletado")
-      #chama consultacadastro(self.CPF) se for false volta pro menu
-      #se verdadeiro chama a funçao deletar usuario do banco de dados
+      chama consultacadastro(self.CPF) se for false volta pro menu
+      se verdadeiro chama a funçao deletar usuario do banco de dados
       pass
 
   def verificarMulta(self):
       print("sua multa é: ") #imprime resultados da funçao que calculaMulta(self.cpf)
+  '''
 
+  def ver_informacoes(self):
+    print(f'Nome: {self.nome}\nCPF: {self.CPF} \nEmail: {self.email} \nEndereço: {self.endereco}')
+  pass
+
+  def atualizarSenha(self):
+    os.system("clear")
+    senha_atual = input("Digite a sua senha atual: ")
+    if senha_atual == self.senha:
+      nova_senha = input("Digite a sua nova senha: ")
+      confirma_nova_senha = input("Confirme a sua nova senha: ")
+      if nova_senha == confirma_nova_senha:
+        self.senha = nova_senha
+        print("Senha alterada com sucesso!!")
+        self.menuUsuario()
+      else:
+        os.system("clear")
+        print ("As senhas nao sao iguais. Tente novamente!!")
+        input("Pressione enter.")
+        self.atualizarSenha()
+    else:
+      print ("Senha incorreta!!")
+      self.menuUsiario()
+  pass
+  
+  def atualizarEndereco(self):
+    os.system("clear")
+    self.endereco = input("Digite seu novo endereco: ")
+  pass
+  
+  def atualizarEmail(self):
+    os.system("clear")
+    self.email = input("Digite seu novo Email: ")
+  pass
 
   def menuUsuario(self):
       def get_char():        # Função para capturar o caractere pressionado pelo usuário
@@ -25,7 +60,7 @@ class Comum(Usuario):
           return ch
       c = 0
       while True:
-          opcao = ["Fazer reserva", "Cancelar reserva", "Verificar multa", "Deletar usuario"]
+          opcao = ["Ver minhas informacoes", "Listar meus emprestimos", "Atualizar senha", "Atualizar endereço", "Atualizar Email"]
           cabecalho = ["Pressione 'W' para subir 'S' para descer e 'D' para selecionar.\n", "O que deseja Fazer?"]
           os.system('clear')
           os.system('cls' if os.name == 'nt' else 'clear')        
@@ -43,7 +78,7 @@ class Comum(Usuario):
                   print("====================================\n====================================")
 
           n = get_char()
-
+  
           if n == 's':
               c += 1  # altera contador de click, desce a seta
           elif n == 'w':
@@ -56,19 +91,16 @@ class Comum(Usuario):
 
 
               else:                     #alterar o que cada opçao faz
-                  if opcao [c % len(opcao)] == opcao[0]:    #Fazer reserva
-
-                      print(opcao[0])#deverá chamar a fucao fazer emprestimo do gerenciamento 
-#deverá chamar a fucao fazer reserva do gerenciamento
+                  if opcao [c % len(opcao)] == opcao[0]:    #Ver minhas informacoes
+                    self.ver_informacoes()
 
 
-                  if opcao [c % len(opcao)] == opcao[1]: #Cancelar reserva
+                  if opcao [c % len(opcao)] == opcao[1]: #listar meus emprestimos
 
-                      print(opcao[0])#deverá chamar a fucao cancelar reserva do gerenciamento                        
+                      #print(opcao[0])#deverá chamar a fucao cancelar reserva do gerenciamento                        
 
-                  if opcao [c % len(opcao)] == opcao[2]:  #verifica multa
-
-                      print(opcao[1]) #self.verificaMulta()
+                  if opcao [c % len(opcao)] == opcao[2]:  #Atualizar senha
+                    self.atualizarSenha()
 
                   if opcao [c % len(opcao)] == opcao[3]: # Deletar usuario
                       

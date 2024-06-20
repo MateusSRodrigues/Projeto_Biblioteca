@@ -2,7 +2,7 @@ import mysql.connector
 from mysql.connector import Error
 
 class DatabaseManager:
-    def __init__(self, host='localhost', database='biblioteca', user='mateus', password='264859'):
+    def __init__(self, host='localhost', database='biblioteca', user='glaucia', password='12345'):
         self.host = host
         self.database = database
         self.user = user
