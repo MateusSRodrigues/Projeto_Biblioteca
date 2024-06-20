@@ -8,7 +8,7 @@ import time
 import os, termios, sys, tty
 import time
 
-
+#oi
 class Administrador(Pessoa, Usuario):
 
     def __init__(self, nome, email, cpf, endereco, saldo, senha):
