@@ -64,6 +64,7 @@ class Comum(Usuario):
 
               self.endereco = novo_endereco
               print("Endereço alterado com sucesso!")
+              input("Pressione enter para voltar ao menu.")
               break
 
           except ValueError as e:
