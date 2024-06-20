@@ -1,9 +1,8 @@
-from pessoa import Pessoa
-from usuario import Usuario
-from livro import Livro
-from periodico import Periodico
-from trabalhoacademico import TrabalhoAcademico
-from gerenciamentodados import gerenciamentodados
+from .pessoa import Pessoa
+from .usuario import Usuario
+from .livro import Livro
+from .periodico import Periodico
+from . import gerenciamentodados
 import time
 
 import os, termios, sys, tty
@@ -27,16 +26,16 @@ class Administrador(Pessoa, Usuario):
     
     def criarLivro(self):
             novo_livro = Livro()
-            gerenciamentodados.inserirObra(novo_livro)
+            classe = gerenciamentodados.GerenciamentoDados()
+            classe.inserirObra(novo_livro)
             pass
+    
     def criarPeriodico(self):
             novo_periodico = Periodico()
-            gerenciamentodados.inserirObra(novo_periodico)
+            classe = gerenciamentodados.GerenciamentoDados()
+            classe.inserirObra(novo_periodico)
             pass 
-    def criarTrabalhoAcademico(self):
-            novo_trabalho_academico = TrabalhoAcademico()
-            gerenciamentodados.inserirObra(novo_trabalho_academico)
-            pass    
+   
         
         
     

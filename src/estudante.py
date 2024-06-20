@@ -20,4 +20,4 @@ class Estudante(Pessoa):
                 except ValueError as e:
                     print(e)
 
-teste = Estudante()
+#teste = Estudante()
