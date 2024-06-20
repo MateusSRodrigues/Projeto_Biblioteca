@@ -96,11 +96,21 @@ class Administrador(Pessoa, Usuario):
 
     def procurarObra():
         os.system('clear')
-        titulo = input("Insira o titulo do livro: ")
+
+         try:
+            titulo = input("Insira o titulo do livro: ")
+            titulo = str(titulo)
+            if not titulo:
+                raise ValueError("O titulo não pode ser vazio.")
+            else:
+                gerenciamentodados.pesquisarObraPorTitulo(titulo)
+                break
+        except ValueError as e:
+            print(e)
+            input("Pressione enter para tentar novamente.")
+            os.system("clear")
 
         
-        titulo = str(titulo)
-        gerenciamentodados.pesquisarObraPorTitulo(titulo)
     pass
 
     def menuUsuario(self):
