@@ -139,6 +139,21 @@ class GerenciamentoDados:
             db.disconnect()
 
 
+    @staticmethod
+    def procurarCadastro(pessoa : Pessoa) -> bool:
+        db = DatabaseManager()
+        db.connect()
+        try:
+            query = "SELECT * FROM Usuario WHERE cpf = %s"
+            result = db.fetch_one(query, (pessoa.cpf,))
+            return result is not None
+        except Exception as e:
+            print(f"Erro ao procurar cadastro: {e}")
+            return False
+        finally:
+            db.disconnect()
+
+
 """
 # Exemplo de uso
 teste = Livro('leia', '2589631460', 'terror', 'testinhe', ['jorgite'], '2020-04-04', 50, 5) 

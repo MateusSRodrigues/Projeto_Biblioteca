@@ -1,4 +1,4 @@
-from usuario import Usuario
+from .usuario import Usuario
 import os,termios, sys, tty
 import time
 
@@ -19,7 +19,6 @@ class Comum(Usuario):
     print(f'Nome: {self.nome}\nCPF: {self.CPF} \nEmail: {self.email} \nEndereço: {self.endereco}')
     input("Pressione enter.")
 
-  pass
 
   def atualizarSenha(self):
     os.system("clear")
@@ -41,7 +40,7 @@ class Comum(Usuario):
       os.system("clear")
       print ("Senha incorreta!!")
       input("Pressione enter.")
-  pass
+  
   
   def atualizarEndereco(self):
       while True:
@@ -70,7 +69,7 @@ class Comum(Usuario):
           except ValueError as e:
               print(f"Erro: {e}")
               input("Pressione enter para tentar novamente.")
-  pass
+  
   
   def atualizarEmail(self):
     while True:
@@ -96,7 +95,7 @@ class Comum(Usuario):
         except ValueError as e:
             print(f"Erro: {e}")
             input("Pressione enter para tentar novamente.")
-  pass
+  
 
   def menuUsuario(self):
       def get_char():        # Função para capturar o caractere pressionado pelo usuário
