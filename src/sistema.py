@@ -12,16 +12,9 @@ class Sistema:
         # else cria uma pessoa(adm,graduando...) e chama a sua funcao menu 
 
     def cadastrar(self):
-        nome = input("Nome: ")
-        email = input("Email: ")
-        cpf = input("CPF: ")
-        endereco = input("Endereco: ")
-        senha = input("Senha: ")
-        #chama a funçao consultar
-        #se ja existir manda msg de erro e chama o menu denovo
-        #se nao chama a funcao cadastrar do banco de dados
+        pessoa = Pessoa()
+        gerenciamentodados.inserirCadastro(pessoa)
 
-    
     def menuInicial(self):
         def get_char():        # Função para capturar o caractere pressionado pelo usuário
             fd = sys.stdin.fileno()
