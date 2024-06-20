@@ -97,22 +97,19 @@ O diagrama UML do projeto, apresentado na imagem anexada, fornece uma visão det
 https://app.diagrams.net/#G10LmEIUE0eA6HMtcsmjvOs68jcEctLBKA#%7B%22pageId%22%3A%22NGueF8EDhnSrrotay3M1%22%7D 
 
 Tecnologias Utilizadas
-    Python 3.8
-    Django 3.2
-    PostgreSQL 13
-    Bootstrap 4.6
+    Python 3
+    Mysql
+    Visual Studio Code
 
 Requisitos de Execução
     Python 3.8 ou superior instalado
-    Django 3.2 ou superior instalado
-    PostgreSQL 13 ou superior instalado
+    Banco de dados Mysql
 
 Instalação
     Clonar o repositório do projeto.
     Criar um ambiente virtual.
     Ativar o ambiente virtual.
-    Instalar as dependências do projeto: pip install -r requirements.txt.
-    Criar um banco de dados PostgreSQL.
+    Instalar as dependências do projeto: Criar um Banco de dados e importar o o arquivo Sql no workbench
     Configurar o banco de dados no arquivo settings.py.
     Executar as migrações do banco de dados: python manage.py migrate.
     Executar o servidor de desenvolvimento: python manage.py runserver.
