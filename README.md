@@ -19,7 +19,7 @@ Solução Proposta: Sistema de Biblioteca Avançado
 
 O Sistema de Biblioteca Avançado visa resolver esses desafios através da implementação de tecnologias modernas que facilitam a gestão de acervos híbridos, integrando eficientemente recursos físicos e digitais. As principais funcionalidades incluem:
 
-    Gestão de Acervos Híbridos: Integração de recursos físicos e digitais para uma gestão eficiente.
+Gestão de Acervos Híbridos: Integração de recursos físicos e digitais para uma gestão eficiente.
     Acessibilidade à Informação: Interfaces intuitivas que proporcionam uma experiência de usuário agradável e eficaz.
     Otimização de Processos Internos: Melhoria de processos como catalogação e empréstimo.
     Serviços Personalizados: Promoção de serviços que atendam às necessidades específicas dos usuários modernos.
