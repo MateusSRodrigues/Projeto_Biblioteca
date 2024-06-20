@@ -5,7 +5,7 @@ import os,termios, sys, tty
 import time
 
 class Sistema:
-    def login(self):
+    def login(self) -> None:
         cpf = input("CPF: ")
         senha = input("Senha: ")
         #chama a funçao que consultarcadastro(cpf,senha)
@@ -13,12 +13,12 @@ class Sistema:
         # else cria uma pessoa(adm,graduando...) e chama a sua funcao menu 
     
 
-    def cadastrar(self):
+    def cadastrar(self) -> None:
         pessoa = Pessoa()
         GerenciamentoDados.inserirCadastro(pessoa)
     
 
-    def menuInicial(self):
+    def menuInicial(self) -> None:
         def get_char():        # Função para capturar o caractere pressionado pelo usuário
             fd = sys.stdin.fileno()
             old_settings = termios.tcgetattr(fd)

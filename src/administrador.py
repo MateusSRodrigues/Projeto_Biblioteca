@@ -2,6 +2,7 @@ from .pessoa import Pessoa
 from .usuario import Usuario
 from .livro import Livro
 from .periodico import Periodico
+from .sistema import Sistema
 from . import gerenciamentodados
 import time
 
@@ -24,13 +25,13 @@ class Administrador(Pessoa, Usuario):
         #imprime resultados da funçao que calcula multa
         pass
   '''  
-    def criarLivro(self):
+    def criarLivro(self) -> None:
             novo_livro = Livro()
             classe = gerenciamentodados.GerenciamentoDados()
             classe.inserirObra(novo_livro)
             pass
     
-    def criarPeriodico(self):
+    def criarPeriodico(self) -> None:
             novo_periodico = Periodico()
             classe = gerenciamentodados.GerenciamentoDados()
             classe.inserirObra(novo_periodico)
@@ -39,7 +40,7 @@ class Administrador(Pessoa, Usuario):
         
         
     
-    def criarObra(self):
+    def criarObra(self) -> None:
         def get_char():  # Função para capturar o caractere pressionado pelo usuário
             fd = sys.stdin.fileno()
             old_settings = termios.tcgetattr(fd)
@@ -94,7 +95,7 @@ class Administrador(Pessoa, Usuario):
                         
         pass
 
-    def procurarObra():
+    def procurarObra() -> None:
         os.system('clear')
 
         try:
@@ -111,7 +112,7 @@ class Administrador(Pessoa, Usuario):
             os.system("clear")
 
 
-    def menuUsuario(self):
+    def menuUsuario(self) -> None:
         
         def get_char():  # Função para capturar o caractere pressionado pelo usuário
             fd = sys.stdin.fileno()
@@ -125,12 +126,7 @@ class Administrador(Pessoa, Usuario):
 
         c = 0
         while True:
-            opcao = [
-                "Fazer reserva", "Cancelar reserva", "Fazer emprestimo",
-                "Fazer devolucao", "Renovar emprestimo", "Inserir obra",
-                "Atualizar obra", "Excluir obra", "Procurar obra",
-                "Verificar multa", "Deletar usuario"
-            ]
+            opcao = ["Fazer emprestimo", "Renovar emprestimo","Fazer devolucao", "Procurar obra", "Inserir obra"]
             cabecalho = [
                 "Pressione 'W' para subir 'S' para descer e 'D' para selecionar.\n",
                 "O que deseja Fazer?"
@@ -160,71 +156,36 @@ class Administrador(Pessoa, Usuario):
                 c -= 1  # altera contador de click, sobe a seta
             elif n == 'd':  # escolhe opção
                 if c == 0:
-                    if opcao[c] == opcao[0]:  #Fazer reserva
+                    if opcao[c] == opcao[0]:  #Fazer emprestimo
 
                         print(
                             "0"
                         )  #deverá chamar a fucao fazer reserva do gerenciamento
 
                 else:  #alterar o que cada opçao faz
-                    if opcao[c % len(opcao)] == opcao[0]:  #Fazer reserva
+                    if opcao[c % len(opcao)] == opcao[0]:  #Fazer emprestimo
 
-                        print(
-                            "0"
-                        )  #deverá chamar a fucao fazer reserva do gerenciamento
+                        print("0")  #deverá chamar a fucao fazer reserva do gerenciamento
 
-                    if opcao[c % len(opcao)] == opcao[1]:  #Cancelar reserva
+                    if opcao[c % len(opcao)] == opcao[1]:  #Renovar emprestimo
 
-                        print(
-                            "1"
-                        )  #deverá chamar a fucao cancelar reserva do gerenciamento
+                        print("1")  #deverá chamar a fucao cancelar reserva do gerenciamento
 
-                    if opcao[c % len(opcao)] == opcao[2]:  #Fazer emprestimo
+                    if opcao[c % len(opcao)] == opcao[2]:  #Fazer devolucao
 
-                        print(
-                            "2"
-                        )  #deverá chamar a fucao fazer emprestimo do gerenciamento
+                        print("2")  #deverá chamar a fucao fazer emprestimo do gerenciamento
+                        
+                    if opcao[c % len(opcao)] == opcao[3]:  #procurar obra
 
-                    if opcao[c % len(opcao)] == opcao[3]:  #Fazer devolucao
+                        titulo = input(print("Digite o titulo da obra:"))
+                        aux = gerenciamentodados.GerenciamentoDados()
+                        aux.pesquisarObraPorTitulo(titulo)
+                        result = Sistema.selecionar(aux)
+                        print(result.retornar_atributos())    
 
-                        print(
-                            "3"
-                        )  #deverá chamar a fucao fazer devolucao do gerenciamento
+                    if opcao[c % len(opcao)] == opcao[4]:  #fucao inserir obra
 
-                    if opcao[c % len(opcao)] == opcao[4]:  #Renovar emprestimo
-
-                        print(
-                            "4"
-                        )  #deverá chamar a funcao Renovar emprestimo do gerenciamento
-
-                    if opcao[c % len(opcao)] == opcao[5]:  #fucao inserir obra
-
-                        #print("5")  #deverá chamar a fucao inserir obra do gerenciamento
                         self.criarObra()
 
-                    if opcao[c % len(opcao)] == opcao[6]:  #Atualizar obra
-
-                        print(
-                            "6"
-                        )  #deverá chamar a fucao Atualizar obra do gerenciamento
-
-                    if opcao[c % len(opcao)] == opcao[7]:  #Excluir obra
-
-                        print(
-                            "7"
-                        )  #deverá chamar a fucao Excluir obra do gerenciamento
-
-                    if opcao[c % len(opcao)] == opcao[8]:  #procurar obra
-
-                        print(
-                            "8"
-                        )  #deverá chamar a fucao Procurar obra do gerenciamento
-
-                    if opcao[c % len(opcao)] == opcao[9]:  #verifica multa
-
-                        print("9")  # self.verificaMulta()
-
-                    if opcao[c % len(opcao)] == opcao[10]:  # Deletar usuario
-                        self.deletarUsuario()
                     time.sleep(500)
                 
