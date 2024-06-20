@@ -107,11 +107,17 @@ Requisitos de Execução
 
 Instalação
     Clonar o repositório do projeto.
+    
     Criar um ambiente virtual.
+    
     Ativar o ambiente virtual.
+    
     Instalar as dependências do projeto: Criar um Banco de dados e importar o o arquivo Sql no workbench
+    
     Configurar o banco de dados no arquivo settings.py.
+    
     Executar as migrações do banco de dados: python manage.py migrate.
+    
     Executar o servidor de desenvolvimento: python manage.py runserver.
 
 # Pré-requisitos
