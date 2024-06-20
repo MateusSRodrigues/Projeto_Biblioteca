@@ -6,6 +6,7 @@ from .pessoa import Pessoa
 from .professor import Professor
 from .estudante import Estudante
 from . import administrador
+from datetime import date, timedelta
 
 class GerenciamentoDados:
     @staticmethod
@@ -140,7 +141,7 @@ class GerenciamentoDados:
 
 
     @staticmethod
-    def procurarCadastro(pessoa : Pessoa) -> Pessoa:
+    def procurarCadastro(cpf_in : str) -> Pessoa:
         db = DatabaseManager()
         db.connect()
         try:
@@ -162,45 +163,54 @@ class GerenciamentoDados:
         finally:
             db.disconnect()
 
+
     def verificar_disponibilidade_exemplar(id_obra_fisica):
         db = DatabaseManager()
         db.connect()
         try:
             query = """
-                SELECT COUNT(e.id) as num_disponiveis
-                FROM Exemplar e
-                WHERE e.obra_fisica_id = %s AND e.estado = 'disponivel'
+            SELECT id
+            FROM Exemplar
+            WHERE obra_fisica_id = %s AND estado = 'disponivel'
+            LIMIT 1
             """
             result = db.fetch_one(query, (id_obra_fisica,))
-            return result['num_disponiveis'] if result else 0
+            return result['id'] if result else None
         except Exception as e:
             print(f"Erro ao verificar disponibilidade: {e}")
-            return 0
+            return None
         finally:
             db.disconnect()
 
-   # def InserirEmprestimo(obra: ObraFisica, pessoa: Pessoa) -> bool:
+    def registrar_emprestimo(usuario_id, obra_fisica_id):
+        db = DatabaseManager()
+        db.connect()
+        exemplar_id = GerenciamentoDados.verificar_disponibilidade_exemplar(obra_fisica_id)
+        if exemplar_id:
+            try:
+                hoje = date.today()
+                data_devolucao_prevista = hoje + timedelta(days=14)  # Supondo um prazo de devolução de 14 dias
+
+                query = """
+                    UPDATE Exemplar
+                    SET estado = 'emprestado', usuario_id = %s, data_emprestimo = %s, data_devolucao_prevista = %s
+                    WHERE id = %s
+                """
+                params = (usuario_id, hoje, data_devolucao_prevista, exemplar_id)
+                db.execute_query(query, params)
+                print(f"Empréstimo registrado com sucesso. Exemplar ID: {exemplar_id}")
+                return True
+            except Exception as e:
+                print(f"Erro ao registrar empréstimo: {e}")
+                return False
+            finally:
+                db.disconnect()
+        else:
+            print("Nenhum exemplar disponível para empréstimo.")
+        return False
 
 
-    
 
-def main():
-    resultado = GerenciamentoDados.verificar_disponibilidade_exemplar('2589631456')
-    print(resultado)
-    """
-    cpf = input("Digite o CPF para buscar o cadastro: ")
-    pessoa = Pessoa('mateus','mateus@ufmg','02275555625','rua tal','2589632')
-    resultado = GerenciamentoDados.procurarCadastro(pessoa)
-    if resultado:
-        print("Cadastro encontrado:")
-        print(f"Nome: {resultado._nome}")
-        print(f"Email: {resultado._email}")
-        print(f"Endereço: {resultado._endereco}")
-    else:
-        print("Cadastro não encontrado.")
-    """
-if __name__ == "__main__":
-    main()
 
 
 """
