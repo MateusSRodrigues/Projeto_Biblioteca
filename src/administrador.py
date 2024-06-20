@@ -94,6 +94,15 @@ class Administrador(Pessoa, Usuario):
                         
         pass
 
+    def procurarObra():
+        os.system('clear')
+        titulo = input("Insira o titulo do livro: ")
+
+        
+        titulo = str(titulo)
+        gerenciamentodados.pesquisarObraPorTitulo(titulo)
+    pass
+
     def menuUsuario(self):
         
         def get_char():  # Função para capturar o caractere pressionado pelo usuário
