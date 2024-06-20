@@ -50,7 +50,29 @@ class Comum(Usuario):
   
   def atualizarEmail(self):
     os.system("clear")
-    self.email = input("Digite seu novo Email: ")
+    while True:
+        os.system("clear")
+        try:
+            novo_email = input("Por favor, insira o novo email: ")
+            if novo_email.strip(" ") == "":
+                raise ValueError("O email não pode ser vazio.")
+
+            if not novo_email:
+                raise ValueError("O email não pode ser vazio.")
+
+            if "@" not in novo_email:
+                raise ValueError('Email invalido!! Lembre-se do "@".')
+
+            if "mail.com" not in novo_email:
+                raise ValueError('Email invalido!! Lembre-se do "mail.com".')
+                
+            self.email = novo_email
+            print("Email alterado com sucesso!")
+            break
+          
+        except ValueError as e:
+            print(f"Erro: {e}")
+            input("Pressione enter para tentar novamente.")
   pass
 
   def menuUsuario(self):
