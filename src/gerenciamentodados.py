@@ -362,27 +362,3 @@ class GerenciamentoDados:
         finally:
             db.disconnect()
 
-
-#atualizar cadastros
-
-
-#from .estudante import Estudante
-# Exemplo de uso
-#teste = Livro("SUMA",'9788544101002','fantasia','A guerra dos tronos',['George R.R. Martin'],'2015-06-10',688,3) 
-#pessoa = Estudante('Glaucia MF','glauciaMF@ufmg.br','12345678923','Goias','mf123','2024252836')
-
-#GerenciamentoDados.inserirCadastro(pessoa)
-#GerenciamentoDados.inserirObra(teste)
-#GerenciamentoDados.registrar_emprestimo(,'9788544101002')
-#GerenciamentoDados.listar_emprestimo('12345678923')
-"""
-ISBN 978-8544101001
-Autor George R.R. Martin
-Titulo A guerra dos tronos - As Cronicas de Gelo e Fogo
-688 
-Suma
-
-results = GerenciamentoDados.pesquisarObraPorTitulo('testinhe')
-for obra in results:
-    print(obra.retornar_atributos())
-"""

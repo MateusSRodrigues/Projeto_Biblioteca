@@ -37,7 +37,6 @@ class Comum(Usuario):
                     os.system("clear")
                     print("Senha alterada com sucesso!!")
                     GerenciamentoDados.atualizar_informacoes_usuario(pessoa.cpf,nova_senha,None,None)
-                    print("teste")
                     input("Pressione enter.")
                     time.sleep(5)
                     
@@ -180,5 +179,3 @@ class Comum(Usuario):
                   if opcao [c % len(opcao)] == opcao[4]:  #Atualizar email
                     Comum.atualizarEmail(pessoa)
 
-#t = Comum()
-#t.menuUsuario()

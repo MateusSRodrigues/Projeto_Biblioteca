@@ -143,5 +143,5 @@ class Sistema:
 
 
 
-teste = Sistema()
-teste.menuInicial()
+#teste = Sistema()
+#teste.menuInicial()

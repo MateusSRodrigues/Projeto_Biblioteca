@@ -115,4 +115,3 @@ class Periodico(ObraFisica):
     def retornar_atributos(self):
         return super().retornar_sup() + [self._editora, self._area_estudo, self._volume]
 
-#teste = Periodico()
