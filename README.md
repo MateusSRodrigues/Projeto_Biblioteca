@@ -40,6 +40,7 @@ Espera-se que o projeto ofereça:
     Promoção de um ambiente bibliotecário mais dinâmico, acessível e eficaz.
 
 **Conclusão**
+
 O Sistema de Biblioteca Básico tem como objetivo principal transformar a forma como as bibliotecas físicas operam, integrando tecnologias modernas para atender às demandas da era digital. Com isso, espera-se não apenas melhorar o acesso à informação, mas também aumentar a eficácia e eficiência do trabalho realizado pelas bibliotecas.
   
   Este projeto se torna importante em um contexto onde a conveniência, eficiência e acessibilidade são essenciais. O sistema aborda as necessidades tanto de membros da biblioteca quanto de funcionários, proporcionando uma experiência aprimorada no processo de busca, devolução, etc. 
@@ -47,6 +48,7 @@ O Sistema de Biblioteca Básico tem como objetivo principal transformar a forma 
 Este projeto implementa um sistema de biblioteca Básico que permite o gerenciamento de livros, periódicos, usuários, empréstimos e renovações. O sistema é baseado em classes e usa princípios de orientação a objetos para garantir modularidade e reutilização de código.
 
 **Funcionalidades** 
+
 O sistema de biblioteca avançado implementa as funcionalidades básicas de gerenciamento de obras, usuários e empréstimos, conforme descrito a seguir:
 
 Gerenciamento de Obras:
