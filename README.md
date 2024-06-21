@@ -1,11 +1,11 @@
-# POO_TP_SBA
+# POO_TP_SBB
 
 ![Python](https://img.shields.io/pypi/pyversions/:packageName)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
  ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
  <h1 align="center"> TP-FINAL-POO-Biblioteca </h1>
  
- Esse repositório tem por finalidade criar um **Sistema de Biblioteca Avançado**, em Python, para apresentação de um trabalho em grupo de "Programação Orientada a objetos", da UFMG.
+Esse repositório tem por finalidade criar um **Sistema de Biblioteca Básico**, em Python, para apresentação de um trabalho em grupo de "Programação Orientada a objetos", da UFMG.
 
 ## Problema
 Visão Geral:
@@ -19,9 +19,9 @@ As bibliotecas físicas enfrentam desafios significativos, incluindo:
     Mudança nos padrões de comportamento dos usuários.
     
 Esses desafios exigem que as bibliotecas busquem soluções inovadoras para não apenas sobreviver, mas prosperar na era digital.
-Solução Proposta: Sistema de Biblioteca Avançado
+Solução Proposta: Sistema de Biblioteca Básico
 
-O Sistema de Biblioteca Avançado visa resolver esses desafios através da implementação de tecnologias modernas que facilitam a gestão de acervos híbridos, integrando eficientemente recursos físicos e digitais. As principais funcionalidades incluem:
+O Sistema de Biblioteca Básico visa resolver esses desafios através da implementação de tecnologias modernas que facilitam a gestão de acervos híbridos, integrando eficientemente recursos físicos e digitais. As principais funcionalidades incluem:
 
 Gestão de Acervos Híbridos: Integração de recursos físicos e digitais para uma gestão eficiente.
     Acessibilidade à Informação: Interfaces intuitivas que proporcionam uma experiência de usuário agradável e eficaz.
