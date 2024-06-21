@@ -1,62 +1,59 @@
 from .usuario import Usuario
+from .pessoa import Pessoa
 import os,termios, sys, tty
 import time
 
 class Comum(Usuario):
 
-  '''def deletarUsuario(self):
-      print("Usuario deletado")
-      chama consultacadastro(self.CPF) se for false volta pro menu
-      se verdadeiro chama a funçao deletar usuario do banco de dados
-      pass
+    def ver_informacoes(pessoa : Pessoa) -> None:
+        os.system("clear")
+        print(f'Nome: {pessoa.nome}\nCPF: {pessoa.cpf} \nEmail: {pessoa.email} \nEndereço: {pessoa.endereco}')
+        input("Pressione enter.")
 
-  def verificarMulta(self):
-      print("sua multa é: ") #imprime resultados da funçao que calculaMulta(self.cpf)
-  '''
-
-  def ver_informacoes(self) -> None:
-    os.system("clear")
-    print(f'Nome: {self.nome}\nCPF: {self.CPF} \nEmail: {self.email} \nEndereço: {self.endereco}')
-    input("Pressione enter.")
-
-
-  def atualizarSenha(self) -> None:
-    os.system("clear")
-    senha_atual = input("Digite a sua senha atual: ")
+    def atualizarSenha(pessoa : Pessoa) -> None:
+        os.system("clear")
+        senha_atual = input("Digite a sua senha atual: ")
       
-    if senha_atual == self.senha:
-      while True:
-        try:
-            nova_senha = input("Digite a sua nova senha: ")
-            if not nova_senha:
-                raise ValueError("A senha não pode ser vazia.")
-            if ' ' in nova_senha:
-                raise ValueError("A senha não pode ter espaco")
+        
+        while True:
+            if senha_atual == pessoa.senha:
+                try:
+                    nova_senha = input("Digite a sua nova senha: ")
+                    if not nova_senha:
+                        raise ValueError("A senha não pode ser vazia.")
+                    if ' ' in nova_senha:
+                        raise ValueError("A senha não pode ter espaco")
+                    else:
+                        break
+                except ValueError as e:
+                    print(e)
+                    input("Pressione enter para tentar novamente.")
+                    os.system("clear")
+
+                confirma_nova_senha = input("Confirme a sua nova senha: ")
+                if nova_senha == confirma_nova_senha:
+                    from gerenciamentodados import GerenciamentoDados
+                    pessoa.senha = nova_senha
+                    os.system("clear")
+                    print("Senha alterada com sucesso!!")
+                    GerenciamentoDados.atualizar_informacoes_usuario(pessoa.cpf,nova_senha,None,None)
+                    print("teste")
+                    input("Pressione enter.")
+                    time.sleep(5)
+                    
+                else:
+                    os.system("clear")
+                    print ("As senhas nao sao iguais. Tente novamente!!")
+                    input("Pressione enter.")
+                    Comum.atualizarSenha()
             else:
-                break
-        except ValueError as e:
-            print(e)
-            input("Pressione enter para tentar novamente.")
-            os.system("clear")
-      confirma_nova_senha = input("Confirme a sua nova senha: ")
-      if nova_senha == confirma_nova_senha:
-        self.senha = nova_senha
-        os.system("clear")
-        print("Senha alterada com sucesso!!")
-        input("Pressione enter.")
-      else:
-        os.system("clear")
-        print ("As senhas nao sao iguais. Tente novamente!!")
-        input("Pressione enter.")
-        self.atualizarSenha()
-    else:
-      os.system("clear")
-      print ("Senha incorreta!!")
-      input("Pressione enter.")
+                os.system("clear")
+                print ("Senha incorreta!!")
+                input("Pressione enter.")
   
   
-  def atualizarEndereco(self) -> None:
-      while True:
+    def atualizarEndereco(pessoa : Pessoa) -> None:
+        while True:
           os.system("clear")
           try:
               novo_endereco = input("Insira o novo endereço: ")
@@ -74,9 +71,12 @@ class Comum(Usuario):
               if not any(char.isdigit() for char in novo_endereco):
                   raise ValueError('O endereço deve conter o numero da residencia')
 
-              self.endereco = novo_endereco
+              pessoa.endereco = novo_endereco
+              from gerenciamentodados import GerenciamentoDados
+              GerenciamentoDados.atualizar_informacoes_usuario(pessoa.cpf,None,None,novo_endereco)
               print("Endereço alterado com sucesso!")
               input("Pressione enter para voltar ao menu.")
+            
               break
 
           except ValueError as e:
@@ -84,37 +84,45 @@ class Comum(Usuario):
               input("Pressione enter para tentar novamente.")
   
   
-  def atualizarEmail(self) -> None:
-    while True:
-        os.system("clear")
-        try:
-            novo_email = input("Por favor, insira o novo email: ")
-            if novo_email.strip(" ") == "":
-                raise ValueError("O email não pode ser vazio.")
+    def atualizarEmail(pessoa : Pessoa) -> None:
+        while True:
+            os.system("clear")
+            try:
+                novo_email = input("Por favor, insira o novo email: ")
+                if novo_email.strip(" ") == "":
+                    raise ValueError("O email não pode ser vazio.")
 
-            if not novo_email:
-                raise ValueError("O email não pode ser vazio.")
+                if not novo_email:
+                    raise ValueError("O email não pode ser vazio.")
 
-            if "@" not in novo_email:
-                raise ValueError('Email invalido!! Lembre-se do "@".')
+                if "@" not in novo_email:
+                    raise ValueError('Email invalido!! Lembre-se do "@".')
 
-            if "mail.com" not in novo_email:
-                raise ValueError('Email invalido!! Lembre-se do "mail.com".')
-                
-            self.email = novo_email
-            print("Email alterado com sucesso!")
-            break
+                if "mail.com" not in novo_email:
+                    raise ValueError('Email invalido!! Lembre-se do "mail.com".')
+                    
+                pessoa.email = novo_email
+                from gerenciamentodados import GerenciamentoDados
+                GerenciamentoDados.atualizar_informacoes_usuario(pessoa.cpf,None,novo_email,None)
+                print("Email alterado com sucesso!")
+                break
 
-        except ValueError as e:
-            print(f"Erro: {e}")
-            input("Pressione enter para tentar novamente.")
+            except ValueError as e:
+                print(f"Erro: {e}")
+                input("Pressione enter para tentar novamente.")
 
-  def listarEmprestimo(self) -> None:
-     #implementar listar aqui
-     pass
-  
+    def listarEmprestimo(pessoa : Pessoa) -> None:
+        from .gerenciamentodados import GerenciamentoDados
+        GerenciamentoDados.listar_emprestimo(pessoa.cpf)
+        time.sleep(10)
 
-  def menuUsuario(self) -> None:
+    
+    def procurarObra() -> None:
+            os.system('clear')
+            from .sistema import Sistema
+            Sistema.procurarObra()
+
+    def menuUsuario(pessoa : Pessoa) -> None:
       def get_char():        # Função para capturar o caractere pressionado pelo usuário
           fd = sys.stdin.fileno()
           old_settings = termios.tcgetattr(fd)
@@ -149,28 +157,28 @@ class Comum(Usuario):
               c += 1  # altera contador de click, desce a seta
           elif n == 'w':
               c -= 1  # altera contador de click, sobe a seta
-          elif n == 'd':  # escolhe opção
+          elif n == 'd':  # escolhe opçãos
               if c == 0:
                   if opcao[c] == opcao[0]: #Fazer reserva
-                    self.ver_informacoes()
+                    Comum.ver_informacoes(pessoa)
 
               else:                     #alterar o que cada opçao faz
                   if opcao [c % len(opcao)] == opcao[0]:    #Ver minhas informacoes
-                    self.ver_informacoes()
+                    Comum.ver_informacoes(pessoa)
 
 
                   if opcao [c % len(opcao)] == opcao[1]: #listar meus emprestimos
-                    self.listarEmprestimos()
+                    Comum.listarEmprestimo(pessoa)
                       #print(opcao[0])#deverá chamar a fucao cancelar reserva do gerenciamento                        
 
                   if opcao [c % len(opcao)] == opcao[2]:  #Atualizar senha
-                    self.atualizarSenha()
+                    Comum.atualizarSenha(pessoa)
 
                   if opcao [c % len(opcao)] == opcao[3]: # Atualizar endereco
-                    self.atualizarEndereco()
+                    Comum.atualizarEndereco(pessoa)
                     
                   if opcao [c % len(opcao)] == opcao[4]:  #Atualizar email
-                    self.atualizarEmail()
+                    Comum.atualizarEmail(pessoa)
 
-t = Comum()
-t.menuUsuario()
+#t = Comum()
+#t.menuUsuario()

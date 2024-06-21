@@ -6,15 +6,52 @@ import time
 
 class Sistema:
     def login(self) -> None:
-        cpf = input("CPF: ")
-        senha = input("Senha: ")
-        #chama a funçao que consultarcadastro(cpf,senha)
-        # if "funcao consultar cadastro" retornar false chama menu inicial de novo
-        # else cria uma pessoa(adm,graduando...) e chama a sua funcao menu 
+        from .gerenciamentodados import GerenciamentoDados
+        from .estudante import Estudante
+        from .administrador import Administrador
+        from .professor import Professor
+        from .comum import Comum
+        
+        while True:
+            cpf = input("CPF: ")
+            usuario = GerenciamentoDados.procurarCadastro(cpf)
+            if usuario:
+                senha_digitada = input("Senha: ")
+                
+                while senha_digitada != usuario.senha:
+                    print("Senha incorreta. Tente novamente.")
+                    senha_digitada = input("Senha: ")
+                
+                print("Login bem-sucedido!")
+                time.sleep(2)
+                if isinstance(usuario, Estudante) or isinstance(usuario, Professor): 
+                    Comum.menuUsuario(usuario)
+                elif isinstance(usuario, Administrador):
+                    usuario.menuUsuario()
+            else:
+                print("Usuário não encontrado. Verifique o CPF e tente novamente.")
+                time.sleep(3)
+                self.menuInicial()
+
+                
+
+            #chama a funçao que consultarcadastro(cpf,senha)
+            # if "funcao consultar cadastro" retornar false chama menu inicial de novo
+            # else cria uma pessoa(adm,graduando...) e chama a sua funcao menu 
     
 
     def cadastrar(self) -> None:
-        pessoa = Pessoa()
+        from .estudante import Estudante
+        from .administrador import Administrador
+        from .professor import Professor
+        aux = input(print("Você é estudante, professor ou administrador?"))
+        if aux == 'estudante':
+            pessoa = Estudante() 
+        elif aux == 'professor':
+            pessoa = Professor
+        elif aux == 'administrador': pessoa = Administrador()
+        else: print('Tente novamente')
+
         from .gerenciamentodados import GerenciamentoDados
         GerenciamentoDados.inserirCadastro(pessoa)
     
@@ -69,15 +106,9 @@ class Sistema:
                     
                     if opcao [c % len(opcao)] == opcao[2]: #Pesquisar obra
                        #chama a funcao pesquisar obra do banco de dados
-                        titulo = input(print("Digite o titulo da obra:"))
-                        from .gerenciamentodados import GerenciamentoDados
-                        aux = GerenciamentoDados.pesquisarObraPorTitulo(titulo)
-                        if aux != []:
-                            result = self.selecionar(aux)
-                            print(result.retornar_atributos())
-                        
+                        self.procurarObra()    
 
-                        time.sleep(1000)
+                        time.sleep(7)
 
     def selecionar(self, lista: list[ObraFisica]):
         for index, obra in enumerate(lista, start=1):
@@ -89,6 +120,28 @@ class Sistema:
         else:
             raise IndexError("Índice fora do intervalo válido")
         
+    def procurarObra(self):
+        os.system('clear')
+        #from gerenciamentodados import GerenciamentoDados
 
-#teste = Sistema()
-#teste.menuInicial()
+        try:
+            titulo = input(print("Digite o titulo da obra:"))
+            titulo = str(titulo)
+            if not titulo:
+                raise ValueError("O titulo não pode ser vazio.")
+            else:
+                from .gerenciamentodados import GerenciamentoDados
+                aux = GerenciamentoDados.pesquisarObraPorTitulo(titulo)
+                
+                if aux != []:
+                    result = self.selecionar(aux)
+                    print(result.retornar_atributos())
+        except ValueError as e:
+            print(e)
+            input("Pressione enter para tentar novamente.")
+            os.system("clear")
+
+
+
+teste = Sistema()
+teste.menuInicial()

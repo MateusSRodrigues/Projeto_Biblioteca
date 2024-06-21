@@ -108,7 +108,7 @@ class Pessoa:
     
     @senha.setter
     def senha(self, nova_senha):
-        self._senha = nova_senha
+        self._senha = str(nova_senha)
 
 
 

@@ -2,29 +2,16 @@ from .pessoa import Pessoa
 from .usuario import Usuario
 from .livro import Livro
 from .periodico import Periodico
-#from .sistema import Sistema
-#from . import gerenciamentodados
-import time
 
 import os, termios, sys, tty
 import time
 
-#oi
 class Administrador(Pessoa, Usuario):
 
     def __init__(self, nome, email, cpf, endereco, senha):
         super().__init__(nome, email, cpf, endereco, senha)
-    '''
-    def deletarUsuario(self):
-        cpf = input("CPF do usuario a ser deletado")
-        #chama consultacadastro() se for false volta pro menu
-        #se verdadeiro chama a funçao deletar usuario do banco de dados
 
-    def verificarMulta(self):
-        input("CPF do usuario a ser deletado: ")
-        #imprime resultados da funçao que calcula multa
-        pass
-  '''  
+
     def criarLivro(self) -> None:
             from gerenciamentodados import GerenciamentoDados
             novo_livro = Livro()
@@ -99,20 +86,8 @@ class Administrador(Pessoa, Usuario):
 
     def procurarObra() -> None:
         os.system('clear')
-        from gerenciamentodados import GerenciamentoDados
-
-        try:
-            titulo = input("Insira o titulo do livro: ")
-            titulo = str(titulo)
-            if not titulo:
-                raise ValueError("O titulo não pode ser vazio.")
-            else:
-                GerenciamentoDados.pesquisarObraPorTitulo(titulo)
-                #break
-        except ValueError as e:
-            print(e)
-            input("Pressione enter para tentar novamente.")
-            os.system("clear")
+        from .sistema import Sistema
+        Sistema.procurarObra()
 
 
     def menuUsuario(self) -> None:
@@ -194,5 +169,4 @@ class Administrador(Pessoa, Usuario):
 
                     time.sleep(500)
                 
-t = Administrador('mateus','teste@gmail.com','12345678956','rua tal','25896325')
-t.menuUsuario()
+

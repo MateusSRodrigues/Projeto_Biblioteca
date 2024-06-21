@@ -2,8 +2,8 @@ from datetime import date
 from datetime import datetime
 
 class ObraFisica:
-    def __init__(self,id=None, titulo=None, autor=None, data_publicacao=None, paginas=None, quantidade=None):
-        if titulo is None or autor is None or data_publicacao is None or paginas is None or quantidade is None:
+    def __init__(self,id=None, titulo=None, autor=[], data_publicacao=None, paginas=None, quantidade=None):
+        if titulo is None or id is None or autor is [] or data_publicacao is None or paginas is None or quantidade is None:
             self._sup_interactive()
         else:
             self.id=id
@@ -43,12 +43,18 @@ class ObraFisica:
         # Autor
         while True:
             try:
-                autor = input("Digite o autor da obra: ")
-                if autor.strip():
-                    self.autor = [autor]
-                    break
-                else:
-                    raise ValueError("O autor não pode ser vazio.")
+                autores = []
+                while True:
+                    autor = input("Digite o autor da obra (ou pressione Enter para finalizar): ")
+                    if autor.strip():
+                        autores.append(autor.strip())
+                    else:
+                        if autores:  # Verifica se há pelo menos um autor inserido
+                            self.autor = autores
+                            break
+                        else:
+                            raise ValueError("É necessário inserir pelo menos um autor.")
+                break
             except ValueError as e:
                 print(e)
         

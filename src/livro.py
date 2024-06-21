@@ -149,6 +149,7 @@ class Livro(ObraFisica):
         if editora is None or ISBN is None or genero is None:
             self._init_interactive()
         else:
+        
             self.editora = editora
             self.genero = genero
         
@@ -199,16 +200,17 @@ class Livro(ObraFisica):
         """
         Propriedade que retorna o ISBN do livro.
         """
-        return self._ISBN
+        return super().id
 
     @ISBN.setter
     def ISBN(self, novo_ISBN):
+        super().id = novo_ISBN
         """
         Setter da propriedade ISBN. Valida e define o novo valor do ISBN.
 
         Args:
             novo_ISBN (str): Novo valor do ISBN.
-        """
+        
         novo_ISBN = novo_ISBN.replace("-", "")  # Remove hífens, se houver
 
         if not novo_ISBN.isdigit():
@@ -218,7 +220,7 @@ class Livro(ObraFisica):
             raise ValueError("ISBN deve ter 10 ou 13 dígitos.")
 
         self._ISBN = novo_ISBN
-
+        """
     @property
     def editora(self):
         """
