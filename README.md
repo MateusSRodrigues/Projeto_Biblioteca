@@ -3,7 +3,7 @@
 ![Python](https://img.shields.io/pypi/pyversions/:packageName)
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
  ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
- <h1 align="center"> TP-FINAL-POO-Biblioteca </h1>
+ <h1 align="center"> TP-POO-Biblioteca </h1>
  
 Esse repositório tem por finalidade criar um **Sistema de Biblioteca Básico**, em Python, para apresentação de um trabalho em grupo de "Programação Orientada a objetos", da UFMG.
 
