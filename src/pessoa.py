@@ -100,7 +100,7 @@ class Pessoa:
     
     @endereco.setter
     def endereco(self, novo_endereco):
-        self._endereco = novo_emendereco
+        self._endereco = novo_endereco
         
     @property   
     def senha(self):
