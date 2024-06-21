@@ -77,8 +77,8 @@ class Pessoa:
     @nome.setter
     def nome(self, novo_nome):
         self._nome = novo_nome
-        @property
         
+    @property
     def email(self):
         return self._email
     
