@@ -3,7 +3,7 @@ class Pessoa:
         if nome is None or email is None or cpf is None or endereco is None or senha is None:
             self._sup_interactive()
         else:
-            self._nome = nome
+            self.nome = nome
             self._email = email
             self._cpf = cpf
             self._endereco = endereco
