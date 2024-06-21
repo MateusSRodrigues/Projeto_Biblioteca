@@ -40,7 +40,6 @@ Espera-se que o projeto ofereça:
     Promoção de um ambiente bibliotecário mais dinâmico, acessível e eficaz.
 
 **Conclusão**
-
 O Sistema de Biblioteca Básico tem como objetivo principal transformar a forma como as bibliotecas físicas operam, integrando tecnologias modernas para atender às demandas da era digital. Com isso, espera-se não apenas melhorar o acesso à informação, mas também aumentar a eficácia e eficiência do trabalho realizado pelas bibliotecas.
   
   Este projeto se torna importante em um contexto onde a conveniência, eficiência e acessibilidade são essenciais. O sistema aborda as necessidades tanto de membros da biblioteca quanto de funcionários, proporcionando uma experiência aprimorada no processo de busca, devolução, etc. 
@@ -48,17 +47,16 @@ O Sistema de Biblioteca Básico tem como objetivo principal transformar a forma 
 Este projeto implementa um sistema de biblioteca Básico que permite o gerenciamento de livros, periódicos, usuários, empréstimos e renovações. O sistema é baseado em classes e usa princípios de orientação a objetos para garantir modularidade e reutilização de código.
 
 **Funcionalidades** 
-
 O sistema de biblioteca avançado implementa as funcionalidades básicas de gerenciamento de obras, usuários e empréstimos, conforme descrito a seguir:
 
 Gerenciamento de Obras:
     Cadastro detalhado de livros e periódicos, incluindo título, autor, editora, ISBN, gênero, data de publicação, resumo, palavras-chave, quantidade de exemplares e outras informações relevantes.
     Edição de informações cadastradas, permitindo manter o acervo atualizado.
     Consulta eficiente por diversos critérios, facilitando a localização de materiais específicos.
-    Exclusão segura, com mecanismos para garantir que não haja empréstimos ou reservas em aberto.
+    Exclusão segura, com mecanismos para garantir que não haja empréstimos em aberto.
 
 Gerenciamento de Usuários:
-    Criação de perfis de usuários completos, incluindo nome, CPF, endereço, telefone, email, data de nascimento, tipo de usuário (aluno, professor, pesquisador, etc.) e outras informações relevantes.
+    Criação de perfis de usuários completos, incluindo nome, CPF, endereço, telefone, email, data de nascimento, tipo de usuário (aluno, professor e Administrador) e outras informações relevantes.
     Edição de informações cadastradas nos perfis de usuários, permitindo manter os dados atualizados.
     Consulta eficiente por diversos critérios, facilitando a localização de perfis específicos.
     Exclusão segura, com mecanismos para garantir que não haja empréstimos ou reservas em aberto.
@@ -69,8 +67,7 @@ Gerenciamento de Empréstimos:
     Consulta de empréstimos em andamento, com informações sobre obras emprestadas, usuários, datas de empréstimo e devolução, prazos pendentes e histórico de empréstimos.
     Renovação de empréstimos dentro do período permitido e sem reservas pendentes.
 
-Funcionalidades Aprimoradas
-
+Funcionalidades Aprimoradas:
 Além das funcionalidades básicas, o sistema de biblioteca avançado oferece recursos aprimorados que expandem suas capacidades e o tornam uma ferramenta ainda mais completa para o gerenciamento de bibliotecas.
 
 Gerenciamento Avançado de Obras:
@@ -80,15 +77,13 @@ Gerenciamento Avançado de Obras:
     Geração de etiquetas de identificação para as obras, facilitando o controle do acervo e a organização física da biblioteca.
 
 Gerenciamento Avançado de Usuários:
-    Definição de diferentes níveis de acesso para os usuários, permitindo controlar as funcionalidades disponíveis para cada tipo de usuário (administrador, bibliotecário, aluno, professor, pesquisador, etc.).
+    Definição de diferentes níveis de acesso para os usuários, permitindo controlar as funcionalidades disponíveis para cada tipo de usuário (administrador, aluno e professor).
     Integração com sistemas de autenticação externos (LDAP, Active Directory, etc.), permitindo o uso de credenciais já existentes para acessar o sistema da biblioteca.
-    Envio de notificações personalizadas para os usuários, por email ou SMS, informando sobre datas de devolução próximas, reservas disponíveis, novos materiais no acervo, etc.
     Geração de relatórios de uso individualizado, fornecendo informações sobre os hábitos de leitura de cada usuário e auxiliando na personalização dos serviços da biblioteca.
 
 Gerenciamento Avançado de Empréstimos:
     Definição de políticas de empréstimo flexíveis, permitindo configurar prazos de empréstimo, quantidade máxima de obras por usuário, renovações automáticas, multas por atrasos, etc.
     Criação de listas de espera para obras indisponíveis, notificando os usuários automaticamente quando a obra desejada estiver disponível para empréstimo.
-    Integração com sistemas de pagamento online, permitindo o pagamento de multas e taxas de reserva diretamente pelo sistema da biblioteca.
     Geração de relatórios estatísticos sobre os empréstimos, fornecendo informações sobre a frequência de uso das obras, o perfil dos usuários e a sazonalidade da demanda.
     
 # Diagrama UML
