@@ -133,3 +133,5 @@ Para usar o sistema é preciso ter um compilador Python e um Banco de dados Mysq
 Esse projeto utiliza as seguintes linguagens, ferramentas e bibliotecas:
    * Linguagem: [Python](https://www.python.org/downloads/)
    * Compilação: [Banco de dados Mysql](https://www.mysql.com/why-mysql/white-papers/10-principais-motivos-para-usar-o-mysql-como-um-banco-de-dados-incorporado/)
+   * Visual Studio Code: [VSC](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://code.visualstudio.com/&ved=2ahUKEwju2anDuu2GAxWluZUCHdeLBUMQFnoECBQQAQ&usg=AOvVaw15O90sm1ios8AUpw56hCml)
+
