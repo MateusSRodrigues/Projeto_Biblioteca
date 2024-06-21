@@ -74,7 +74,7 @@ class Pessoa:
     def nome(self):
         return self._nome
     
-    @id.setter
+    @nome.setter
     def nome(self, novo_nome):
         self._nome = novo_nome
         @property
@@ -82,7 +82,7 @@ class Pessoa:
     def email(self):
         return self._email
     
-    @id.setter
+    @email.setter
     def email(self, novo_email):
         self._email = novo_email
         
@@ -90,7 +90,7 @@ class Pessoa:
     def cpf(self):
         return self._cpf
     
-    @id.setter
+    @cpf.setter
     def cpf(self, novo_cpf):
         self._cpf = novo_cpf
         
@@ -98,7 +98,7 @@ class Pessoa:
     def endereco(self):
         return self._endereco
     
-    @id.setter
+    @endereco.setter
     def endereco(self, novo_endereco):
         self._endereco = novo_emendereco
         
@@ -106,7 +106,7 @@ class Pessoa:
     def senha(self):
         return self._senha
     
-    @id.setter
+    @senha.setter
     def senha(self, nova_senha):
         self._senha = nova_senha
 
