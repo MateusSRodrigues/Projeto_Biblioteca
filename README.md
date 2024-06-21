@@ -31,16 +31,17 @@ O Sistema de Biblioteca Básico visa resolver esses desafios através da impleme
 * Otimização de Processos Internos: Melhoria de processos como catalogação e empréstimo.
 * Serviços Personalizados: Promoção de serviços que atendam às necessidades específicas dos usuários modernos.
 
-Objetivos do Projeto
+Objetivos do Projeto:
 * Melhorar o Acesso à Informação: Facilitar o acesso tanto a recursos digitais quanto físicos.
 * Aumentar a Eficiência do Trabalho: Otimizar processos internos nas bibliotecas.
 * Oferecer Experiência Personalizada: Atender às necessidades específicas dos usuários com serviços personalizados.
 
-Resultados Esperados
+**Resultados Esperados**
+
 Espera-se que o projeto ofereça:
-    Análise detalhada dos desafios e oportunidades enfrentados pelas bibliotecas físicas contemporâneas.
-    Propostas de soluções concretas e viáveis.
-    Promoção de um ambiente bibliotecário mais dinâmico, acessível e eficaz.
+ * Análise detalhada dos desafios e oportunidades enfrentados pelas bibliotecas físicas contemporâneas.
+ * Propostas de soluções concretas e viáveis.
+ * Promoção de um ambiente bibliotecário mais dinâmico, acessível e eficaz.
 
 **Conclusão**
 
