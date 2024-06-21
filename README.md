@@ -86,42 +86,48 @@ Gerenciamento Avançado de Empréstimos:
     Criação de listas de espera para obras indisponíveis, notificando os usuários automaticamente quando a obra desejada estiver disponível para empréstimo.
     Geração de relatórios estatísticos sobre os empréstimos, fornecendo informações sobre a frequência de uso das obras, o perfil dos usuários e a sazonalidade da demanda.
     
-# Diagrama UML
+## Diagrama UML
 O diagrama UML do projeto, apresentado na imagem anexada, fornece uma visão detalhada das classes, seus atributos, métodos e relações entre elas. Cada classe é descrita com seus componentes e funcionalidades, demonstrando a organização e modularidade do sistema.
 
 https://app.diagrams.net/#G10LmEIUE0eA6HMtcsmjvOs68jcEctLBKA#%7B%22pageId%22%3A%22NGueF8EDhnSrrotay3M1%22%7D 
 
-Tecnologias Utilizadas
-    Python 3
-    Mysql
-    Visual Studio Code
+## Tecnologias Utilizadas
+ Python 3
+ 
+ Mysql
+ 
+ Visual Studio Code
 
-Requisitos de Execução
-    Python 3.8 ou superior instalado
-    Banco de dados Mysql
+**Requisitos de Execução:**
+  
+  Python 3.8 ou superior instalado
+   
+  Banco de dados Mysql
 
-Instalação
-    Clonar o repositório do projeto.
+**Instalação:**
+  
+  Clonar o repositório do projeto.
+  
+  Criar um ambiente virtual.
+  
+  Ativar o ambiente virtual.
+  
+  Instalar as dependências do projeto: Criar um Banco de dados e importar o o arquivo Sql no workbench
     
-    Criar um ambiente virtual.
+  Configurar o banco de dados no arquivo settings.py.
     
-    Ativar o ambiente virtual.
+  Executar as migrações do banco de dados: python manage.py migrate.
     
-    Instalar as dependências do projeto: Criar um Banco de dados e importar o o arquivo Sql no workbench
-    
-    Configurar o banco de dados no arquivo settings.py.
-    
-    Executar as migrações do banco de dados: python manage.py migrate.
-    
-    Executar o servidor de desenvolvimento: python manage.py runserver.
+  Executar o servidor de desenvolvimento: python manage.py runserver.
 
 # Pré-requisitos
 
 Para usar o sistema é preciso ter um compilador Python e um Banco de dados Mysql
 
 # Documentação
-...
+**link:**
+
 # Ferramentas
-Esse projeto utiliza as seguintes linguagem, ferramentas e bibliotecas:
+Esse projeto utiliza as seguintes linguagens, ferramentas e bibliotecas:
    * Linguagem: [Python](https://www.python.org/downloads/)
    * Compilação: [Banco de dados Mysql](https://www.mysql.com/why-mysql/white-papers/10-principais-motivos-para-usar-o-mysql-como-um-banco-de-dados-incorporado/)
